@@ -1,0 +1,27 @@
+<h1>Sign in</h1>
+
+<form action="/login" method="POST">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      class="form-control{{#if errors.email}} is-invalid{{/if}}"
+      name="email" type="email" id="email" placeholder="name@example.com" value="{{user.email}}" required
+    >
+    {{#if errors.email}}
+      <div class="invalid-feedback">
+        {{errors.email}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      class="form-control" 
+      name="password" type="password" id="password" required
+    >
+  </div>
+  <div class="flex">
+    <button class="btn btn-primary" type="submit">Sign in</button>
+    <a href="/login/google" class="btn btn-danger">Sign in with Google</a>
+  </div>
+</form>
