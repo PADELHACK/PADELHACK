@@ -1,0 +1,43 @@
+{{! Form nuevo producto }}
+<form method="POST" action="/products/doCreate">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre del Producto</label>
+    <input type="text" class="form-control" id="name" name="name" />
+  </div>
+  <div class="mb-3">
+    <label for="brand" class="form-label">Marca</label>
+    <input type="text" class="form-control" id="brand" name="brand" />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Precio (€)</label>
+    <input type="text" class="form-control" id="price" name="price" />
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Categoría</label>
+    <input type="text" class="form-control" id="category" name="category" />
+  </div>
+  <div class="mb-3">
+    <label for="level" class="form-label">Nivel</label>
+    <input type="text" class="form-control" id="level" name="level" />
+  </div>
+  <div class="mb-3">
+    <label for="shortDescription" class="form-label">Descripción corta</label>
+    <textarea
+      name="shortDescription"
+      id="shortDescription"
+      cols="30"
+      rows="10"
+    ></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="longDescription" class="form-label">Descripción total</label>
+    <textarea
+      name="longDescription"
+      id="longDescription"
+      cols="30"
+      rows="10"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
