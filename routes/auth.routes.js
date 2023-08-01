@@ -14,7 +14,7 @@ router.post('/register', authMiddleware.isUnauthenticated, authController.doRegi
 router.get('/login', authMiddleware.isUnauthenticated, authController.login);
 router.post('/login', authMiddleware.isUnauthenticated, authController.doLogin);
 
-// router.get('/logout', authMiddleware.isAuthenticated, authController.logout);
+router.get('/logout', authMiddleware.isAuthenticated, authController.logout);
 
 // router.get('/login/google', authMiddleware.isUnauthenticated, authController.loginGoogle);
 // router.get('/authenticate/google/cb', authMiddleware.isUnauthenticated, authController.doLoginGoogle);
