@@ -7,7 +7,6 @@ const path = require("path");
 const createError = require('http-errors');
 const passport = require('passport');
 
-const passport = require('passport')
 const app = express()
 
 //config
@@ -42,9 +41,10 @@ app.use("/", routes);
 const authRoutes = require("./routes/auth.routes.js");
 app.use("/", authRoutes);
 
-const port = Number(process.env.PORT || 3000);
 const productsRoutes = require('./routes/products.routes')
 app.use('/products', productsRoutes)
+
+const port = Number(process.env.PORT || 3000);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
