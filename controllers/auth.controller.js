@@ -71,7 +71,7 @@ module.exports.register = (req, res, next) => {
           if (error) {
             next(error);
           } else {
-            res.redirect('/profile')
+            res.redirect('/')
           }
         });
       }
@@ -94,5 +94,5 @@ module.exports.register = (req, res, next) => {
 
   module.exports.logout = (req, res, next) => {
     req.session.destroy();
-    res.redirect('/login');
+    res.redirect('/');
   }
