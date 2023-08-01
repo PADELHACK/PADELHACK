@@ -44,6 +44,10 @@ app.use("/", authRoutes);
 const productsRoutes = require('./routes/products.routes')
 app.use('/products', productsRoutes)
 
+const usersRoutes = require('./routes/users.routes')
+app.use('/', usersRoutes)
+
+
 const port = Number(process.env.PORT || 3000);
 
 app.listen(port, () => {
