@@ -7,7 +7,6 @@ const path = require("path");
 const createError = require('http-errors');
 const passport = require('passport');
 
-const passport = require('passport')
 const app = express()
 
 //config
