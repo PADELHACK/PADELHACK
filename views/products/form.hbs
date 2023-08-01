@@ -1,5 +1,5 @@
 {{! Form nuevo producto }}
-<form method="POST" action="/products/doCreate">
+<form method="POST" action="/products/doCreate" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="name" class="form-label">Nombre del Producto</label>
     <input type="text" class="form-control" id="name" name="name" />
@@ -37,6 +37,10 @@
       cols="30"
       rows="10"
     ></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Imagen</label>
+    <input type="file" class="form-control" id="image" name="image" />
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
