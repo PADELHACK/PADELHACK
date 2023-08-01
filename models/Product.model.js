@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     },
     brand: {
         type: String,
-        //enum: BRANDS,
+        enum: BRANDS,
         required: [true, REQUIRE_FILDS],
     },
     price: {
@@ -18,22 +18,26 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        //enum: CATEGORY,
-        //required: [true, REQUIRE_FILDS],
+        enum: CATEGORY,
+        required: [true, REQUIRE_FILDS],
     },
     level: {
         type: String,
-        //enum: LEVELS,
-        //required: [true, REQUIRE_FILDS],
+        enum: LEVELS,
+        required: [true, REQUIRE_FILDS],
     },
     shortDescription: {
         type: String,
-        //required: [true, REQUIRE_FILDS],
+        required: [true, REQUIRE_FILDS],
     },
     longDescription: {
         type: String,
-        //required: [true, REQUIRE_FILDS],
-    }
+        required: [true, REQUIRE_FILDS],
+    },
+    image: {
+        type: String,
+        required: [true, REQUIRE_FILDS],
+    },
 })
 
 const Products = mongoose.model('Product', productSchema)

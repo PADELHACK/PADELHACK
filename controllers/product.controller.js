@@ -18,7 +18,13 @@ module.exports.create = (req, res, rext) => {
 
 
 module.exports.doCreate = (req, res, next) => {
-    Product.create(req.body)
+    const data = {
+        ...req.body,
+        owner: req.user._id,
+        image: req.file ? req.file.path : undefined,
+      }
+
+    Product.create(data)
     .then(() => {
         console.log('product created')
         res.redirect('/products/list')
