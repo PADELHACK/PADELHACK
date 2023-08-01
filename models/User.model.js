@@ -11,11 +11,11 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-    //   required: [true, REQUIRED_FIELD]
+      required: [true, REQUIRED_FIELD]
     },
     email: {
       type: String,
-      // required: [true, REQUIRED_FIELD],
+      required: [true, REQUIRED_FIELD],
       unique: true,
       match: [EMAIL_PATTERN, INVALID_FIELD]
     },
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
     // },
     password: {
       type: String,
-      // required: [true, REQUIRED_FIELD],
+      required: [true, REQUIRED_FIELD],
       match: [PASSWORD_PATTERN, INVALID_FIELD]
     },
     // googleID: {

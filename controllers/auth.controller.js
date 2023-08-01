@@ -7,9 +7,8 @@ module.exports.register = (req, res, next) => {
   };
   
   module.exports.doRegister = (req, res, next) => {
+    console.log('req.body ', req.body)
     const { email, password, repeatPassword } = req.body
-  
-    console.log(req.body)
   
     const renderWithErrors = (errors) => {
       res.render('auth/register', {
@@ -29,6 +28,7 @@ module.exports.register = (req, res, next) => {
   
     User.findOne({ email })
       .then(user => {
+        console.log("PASA POR AQUI")
         if (user) {
           renderWithErrors({ email: 'Email already in use' });
         } else {
@@ -37,13 +37,14 @@ module.exports.register = (req, res, next) => {
             avatar: req.file ? req.file.path : undefined
           }
   
-          return User.create(userData)
+          return User.create(req.body)
             .then(() => {
               res.redirect('/login')
             })
         }
       })
       .catch(err => {
+        console.error(err);
         if (err instanceof mongoose.Error.ValidationError) {
           renderWithErrors(err.errors);
         } else {
