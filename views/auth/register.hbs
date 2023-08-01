@@ -1,6 +1,6 @@
 <h1 class="mt-2 ms-5">Crea tu cuenta en PADELHACK</h1>
 
-<form action="/register" method="POST" class="mt-3 ms-5">
+<form action="/register" method="POST" class="mt-3 ms-5" enctype="multipart/form-data">
   <div class="col-md-3">
     <label for="email" class="form-label">Email address</label>
     <input
@@ -50,10 +50,10 @@
     {{/if}}
   </div>
 
-  {{!-- <div class="mb-3">
+  <div class="mb-3">
     <label for="avatar" class="form-label">Avatar</label>
     <input class="form-control" type="file" id="avatar" name="avatar">
-  </div> --}}
+  </div>
 
   <button class="btn btn-primary mt-3" type="submit">Create account</button>
 </form>

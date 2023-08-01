@@ -2,14 +2,13 @@ const router = require('express').Router();
 const authController = require('../controllers/auth.controller');
 
 const authMiddleware = require('../middlewares/auth.middleware');
+const upload = require('../config/multer.config');
 
 /* Auth */
 
 router.get('/register', authMiddleware.isUnauthenticated, authController.register);
-router.post('/register', authMiddleware.isUnauthenticated, authController.doRegister);
+router.post('/register', authMiddleware.isUnauthenticated, upload.single('avatar'), authController.doRegister);
 
-// post register con avatar
-// router.post('/register', authMiddleware.isUnauthenticated, upload.single('avatar'), authController.doRegister);
 
 router.get('/login', authMiddleware.isUnauthenticated, authController.login);
 router.post('/login', authMiddleware.isUnauthenticated, authController.doLogin);
