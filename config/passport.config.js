@@ -2,7 +2,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
 const LocalStrategy = require('passport-local').Strategy;
-// const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.serializeUser((user, next) => {
   next(null, user._id);
@@ -43,41 +43,41 @@ passport.use(
   )
 )
 
-// passport.use(
-//   'google-auth',
-//   new GoogleStrategy(
-//     {
-//       clientID: process.env.G_CLIENT_ID,
-//       clientSecret: process.env.G_CLIENT_SECRET,
-//       callbackURL: process.env.G_REDIRECT_URI || '/authenticate/google/cb',
-//     },
-//     (accessToken, refreshToken, profile, next) => {
-//       const displayName = profile.displayName;
-//       const googleID = profile.id;
-//       const email = profile.emails[0] ? profile.emails[0].value : undefined;
-//       const avatar = profile.photos[0] ? profile.photos[0].value : undefined;
+passport.use(
+  'google-auth',
+  new GoogleStrategy(
+    {
+      clientID: process.env.G_CLIENT_ID,
+      clientSecret: process.env.G_CLIENT_SECRET,
+      callbackURL: process.env.G_REDIRECT_URI || '/authenticate/google/cb',
+    },
+    (accessToken, refreshToken, profile, next) => {
+      const displayName = profile.displayName;
+      const googleID = profile.id;
+      const email = profile.emails[0] ? profile.emails[0].value : undefined;
+      const avatar = profile.photos[0] ? profile.photos[0].value : undefined;
 
-//       if (displayName && googleID && email) {
-//         User.findOne({ $or: [{ email }, { googleID }] })
-//           .then(user => {
-//             if (user) {
-//               next(null, user);
-//             } else {
-//               const userData = {
-//                 username: displayName,
-//                 email,
-//                 password: new mongoose.Types.ObjectId(),
-//                 googleID,
-//                 avatar,
-//               }
-//               return User.create(userData)
-//                 .then(createdUser => next(null, createdUser))
-//             }
-//           })
-//           .catch(err => next(err))
-//       } else {
-//         next(null, null, { email: 'Invalid google oauth response' });
-//       }
-//     }
-//   )
-// )
+      if (displayName && googleID && email) {
+        User.findOne({ $or: [{ email }, { googleID }] })
+          .then(user => {
+            if (user) {
+              next(null, user);
+            } else {
+              const userData = {
+                username: displayName,
+                email,
+                password: new mongoose.Types.ObjectId(),
+                googleID,
+                avatar,
+              }
+              return User.create(userData)
+                .then(createdUser => next(null, createdUser))
+            }
+          })
+          .catch(err => next(err))
+      } else {
+        next(null, null, { email: 'Invalid google oauth response' });
+      }
+    }
+  )
+)
