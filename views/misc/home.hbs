@@ -1,1 +1,235 @@
-<h1>Hola mundo</h1>
+<h1>Bienvenido a Padelhack</h1>
+
+{{! <h1 class="text-white">Welcome to Padelhack</h1>
+
+<p class="text-white">WE PLAY THE GAME!</p>
+
+<a href="#section_2" class="btn custom-btn smoothscroll mt-3">Empieza a comprar</a> }}
+
+<div id="arouselExampleAutoplaying" class="carousel carousel-dark slide">
+  <div class="carousel-inner">
+    <div class="d-flex ms-5">
+      {{#each products}}
+        <div class="card m-2 carousel-item active" style="width: 18rem;">
+          <img class="card-img-top" src="{{image}}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">ADIDAS RX CARBON 2023</h5>
+            <span class="badge">palas</span>
+            <p class="price mb-0">9,99 $</p>
+          </div>
+        </div>
+      {{/each}}
+          <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#arouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#arouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+  </div>
+
+</div>
+
+{{! <div class="multi-carousel" data-mdb-interval="3000" data-mdb-items="5">
+  <div class="d-flex justify-content-center m-2 mb-3">
+    <button
+      class="carousel-control-prev btn btn-pink btn-floating mx-3"
+      type="button"
+      tabindex="0"
+      data-mdb-slide="prev"
+    >
+      <i class="fas fa-angle-left fa-lg"></i>
+    </button>
+    <button
+      class="carousel-control-next btn btn-pink btn-floating mx-3"
+      type="button"
+      tabindex="0"
+      data-mdb-slide="next"
+    >
+      <i class="fas fa-angle-right fa-lg"></i>
+    </button>
+  </div>
+  <div class="multi-carousel-inner">
+    <div class="multi-carousel-item">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915038/Padelhack/adidas_pala2_hfbflr.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">ADIDAS RX CARBON 2023</h5>
+          <span class="badge">palas</span>
+          <p class="price mb-0">9,99 $</p>
+        </div>
+      </div>
+    </div>
+    <div class="multi-carousel-item">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915122/Padelhack/babolat_zapatillas1_brdvma.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">BABOLAT JET PREMURA 2 AZUL ROJO 30F22752 4100</h5>
+          <span class="badge">zapatillas</span>
+          <p class="price mb-0">14,99 $</p>
+        </div>
+      </div>
+    </div>
+    <div class="multi-carousel-item">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915295/Padelhack/babolat_textil1_gerybe.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">CHAQUETA BABOLAT PLAY AZUL</h5>
+          <span class="badge">textil</span>
+          <p class="price mb-0">12,99 $</p>
+        </div>
+      </div>
+    </div>
+    <div class="multi-carousel-item">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915367/Padelhack/nox_pelotas1_cekiei.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">BOTE DE 4 BOLAS NOX PRO TITANIUM</h5>
+          <span class="badge">pelotas</span>
+          <p class="price mb-0">10,99 $</p>
+        </div>
+      </div>
+    </div>
+    <div class="multi-carousel-item">
+      <div class="card m-2">
+        <img
+          class="card-img-top"
+          src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915435/Padelhack/varlion_pala1_xjouwb.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">VARLION LW ITSV HARD</h5>
+          <span class="badge">palas</span>
+          <p class="price mb-0">19,99 $</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> }}
+
+{{! <section class="hero-section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 col-12">
+        <div class="text-center mb-5 pb-2">
+
+        </div>
+
+        <div class="owl-carousel owl-theme">
+          <div class="owl-carousel-info-wrap item">
+            <img
+              src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915038/Padelhack/adidas_pala2_hfbflr.jpg"
+              class="owl-carousel-image img-fluid"
+              alt=""
+            />
+
+            <div class="owl-carousel-info">
+              <h4 class="mb-2">
+                ADIDAS RX CARBON 2023
+              </h4>
+
+              <span class="badge">palas</span>
+            </div>
+          </div>
+
+          <div class="owl-carousel-info-wrap item">
+            <img
+              src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915122/Padelhack/babolat_zapatillas1_brdvma.jpg"
+              class="owl-carousel-image img-fluid"
+              alt=""
+            />
+
+            <div class="owl-carousel-info">
+              <h4 class="mb-2">
+                BABOLAT JET PREMURA 2 AZUL ROJO 30F22752 4100
+              </h4>
+
+              <span class="badge">zapatillas</span>
+            </div>
+          </div>
+
+          <div class="owl-carousel-info-wrap item">
+            <img
+              src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915295/Padelhack/babolat_textil1_gerybe.jpg"
+              class="owl-carousel-image img-fluid"
+              alt=""
+            />
+
+            <div class="owl-carousel-info">
+              <h4 class="mb-2">
+                CHAQUETA BABOLAT PLAY AZUL
+              </h4>
+
+              <span class="badge">textil</span>
+            </div>
+          </div>
+
+          <div class="owl-carousel-info-wrap item">
+            <img
+              src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915367/Padelhack/nox_pelotas1_cekiei.jpg"
+              class="owl-carousel-image img-fluid"
+              alt=""
+            />
+
+            <div class="owl-carousel-info">
+              <h4 class="mb-2">
+                BOTE DE 4 BOLAS NOX PRO TITANIUM
+              </h4>
+
+              <span class="badge">pelotas</span>
+            </div>
+          </div>
+
+          <div class="owl-carousel-info-wrap item">
+            <img
+              src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915435/Padelhack/varlion_pala1_xjouwb.jpg"
+              class="owl-carousel-image img-fluid"
+              alt=""
+            />
+
+            <div class="owl-carousel-info">
+              <h4 class="mb-2">
+                VARLION LW ITSV HARD
+              </h4>
+
+              <span class="badge">palas</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section> }}
