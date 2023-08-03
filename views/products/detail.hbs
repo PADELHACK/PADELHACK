@@ -1,0 +1,32 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div class="col-md-4 col-sm-12 py-2">
+    <img src="{{product.image}}" class="w-100 rounded border"/>
+  </div>
+  <div>
+    <div class="col-md-2 col-sm-12 py-2">
+        <h3 class="font-weight-semi">{{product.name}}</h3>
+        <h4 class="text-body-secondary">{{product.price}} €</h4>
+        <h5 class="text-body-secondary">{{product.brand}}</h5>
+    </div>  
+  <div class="col-md-6 col-sm-12 py-2">
+    <p>{{{product.longDescription}}}</p>
+  </div>
+
+    <div class="row bg-white p-3 mx-auto mb-2">
+        <span class="badge bg-secondary">{{product.brand}}</span>
+        <span
+
+        {{#switch product.level}} 
+            {{#case 'iniciación'}} class="badge text-bg-primary"{{/case}}
+            {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
+            {{#case 'avanzado'}} class="badge text-bg-success"{{/case}}
+            {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
+        {{/switch}}
+        ><i class="fa fa-leaf me-1"></i>{{product.level}}
+        </span>
+
+        
+    </div>
+  </div>
+ 
+</div>
