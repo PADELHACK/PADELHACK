@@ -6,3 +6,21 @@ código de colores
 #05F2F2
 #D7F205
 */
+
+.carousel-item {
+  margin-left: -380px;
+}
+
+.carousel-control-prev-icon {
+  color: black;
+}
+
+/* .carousel-caption {
+  color: black;
+}
+
+.carousel-caption {
+  margin-left: -230px;
+  margin-bottom: -50px;
+  width: 200px;
+} */
