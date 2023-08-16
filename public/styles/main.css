@@ -11,5 +11,9 @@ código de colores
 .outlet-bar {
     display: flex;
     justify-content: center;
+}
 
+nav{
+    color: #D7F205 !important;
+    background:   linear-gradient(45deg, #034C8C, #048ABF, #04B2D9, #05F2F2);
 }
