@@ -7,6 +7,9 @@ código de colores
 #D7F205
 */
 
+.carousel-item {
+  margin-left: -380px;
+}
 
 .outlet-bar {
     display: flex;
