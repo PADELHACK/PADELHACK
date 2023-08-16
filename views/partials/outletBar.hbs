@@ -1,0 +1,49 @@
+<div class="outlet-bar row m-auto p-2" style="width: 100%">
+    <!-- Para pantallas grandes -->
+<div class="row text-center  d-none d-lg-block" >
+    <a class="col-lg-3 col-md-3" href="./"><img class="col-3" src="/images/Outlet/palas.jpg" alt=""></a>
+    <a class="col-lg-3 col-md-3" href="./"><img class="col-3" src="/images/Outlet/zapatillas.jpg" alt=""></a>
+    <a class="col-lg-3 col-md-3" href="./"><img class="col-3" src="/images/Outlet/ropa.jpg" alt=""></a>
+</div>
+
+<!-- Para pantallas pequeñas -->
+<div id="carouselExampleInterval" class="carousel slide d-lg-none" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="/images/Outlet/palas.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/images/Outlet/zapatillas.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/Outlet/ropa.jpg" class="d-block w-100 img-fluid" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+
+<style>
+    /* Estilos para pantallas grandes */
+    @media (min-width: 721px) {
+        img{
+            width: 400px;
+        }
+    }
+
+    /* Estilos para pantallas pequeñas */
+    @media (max-width: 720px) {
+        /* Agrega estilos específicos aquí si es necesario */
+        img{
+            height: 200px;
+        }
+    }
+</style>

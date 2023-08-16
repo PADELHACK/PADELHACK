@@ -9,4 +9,6 @@ router.get('/list', productsController.list)
 router.get('/create', productsController.create)
 router.post('/doCreate', upload.single('image'), productsController.doCreate)
 
+router.get('/detail/:id', productsController.detail)
+
 module.exports = router

@@ -15,8 +15,6 @@ module.exports.list =(req, res, next) => {
 module.exports.create = (req, res, rext) => {
     res.render ('products/form')
 }
-
-
 module.exports.doCreate = (req, res, next) => {
     const data = {
         ...req.body,
@@ -34,4 +32,16 @@ module.exports.doCreate = (req, res, next) => {
         next(err)
     })
 }
+
+module.exports.detail = (req, res, next) => {
+    Product.findById(req.params.id)
+    .then((product) => {
+        res.render('products/detail', {product})
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+}
+
 

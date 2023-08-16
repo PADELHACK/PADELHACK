@@ -11,16 +11,12 @@ código de colores
   margin-left: -380px;
 }
 
-.carousel-control-prev-icon {
-  color: black;
+.outlet-bar {
+    display: flex;
+    justify-content: center;
 }
 
-/* .carousel-caption {
-  color: black;
+nav{
+    color: #D7F205 !important;
+    background:   linear-gradient(45deg, #034C8C, #048ABF, #04B2D9, #05F2F2);
 }
-
-.carousel-caption {
-  margin-left: -230px;
-  margin-bottom: -50px;
-  width: 200px;
-} */
