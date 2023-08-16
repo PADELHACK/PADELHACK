@@ -15,3 +15,9 @@ hbs.registerHelper('switch', function(value, options) {
       return options.fn(this);
     }
   });
+
+  hbs.registerHelper('isActive', function(index, options) {
+    if (index == 0) {
+      return options.fn(this);
+    }
+  });
