@@ -28,14 +28,19 @@ passport.use(
           if (!user) {
             next(null, null, { email: 'Invalid email or password' })
           } else {
-            return user.checkPassword(password)
-              .then(match => {
-                if (!match) {
-                  next(null, null, { email: 'Invalid email or password' })
-                } else {
-                  next(null, user);
-                }
-              })
+            if (!user.active) {
+              next(null, null, { email: 'Comprueba tu email para activar tu cuenta' });
+            } else {
+              return user.checkPassword(password)
+                .then(match => {
+                  if (!match) {
+                    next(null, null, { email: 'Invalid email or password' })
+                  } else {
+                    next(null, user);
+                  }
+                })
+            }
+
           }
         })
         .catch(err => next(err))
@@ -69,6 +74,7 @@ passport.use(
                 password: new mongoose.Types.ObjectId(),
                 googleID,
                 avatar,
+                active: true
               }
               return User.create(userData)
                 .then(createdUser => next(null, createdUser))
