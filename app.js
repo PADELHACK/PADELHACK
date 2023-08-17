@@ -47,6 +47,9 @@ app.use('/products', productsRoutes)
 const usersRoutes = require('./routes/users.routes')
 app.use('/', usersRoutes)
 
+const cartRoutes = require('./routes/cart.routes')
+app.use('/cart', cartRoutes)
+
 
 const port = Number(process.env.PORT || 3000);
 

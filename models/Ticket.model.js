@@ -1,45 +1,45 @@
 const mongoose = require("mongoose");
-const { WELCOME_MESSAGE, CORPORATE_SIGNATURE } = require('../constants');
+const {
+  WELCOME_MESSAGE,
+  CORPORATE_SIGNATURE,
+  REQUIRE_FIELDS,
+} = require("../constants");
 
 // const COMPANY_LOGO_DEFAULT = "/path/to/default/logo.png"
 
 const ticketSchema = new mongoose.Schema({
-    weolcomeMessage: {
-        type: String,
-        required: [true, REQUIRE_FIELDS],
-        default: WELCOME_MESSAGE,
+  weolcomeMessage: {
+    type: String,
+    required: [true, REQUIRE_FIELDS],
+    default: WELCOME_MESSAGE,
+  },
+  quantity: {
+    type: Number,
+    required: [true, REQUIRE_FIELDS],
+  },
+  corporateSignature: {
+    type: String,
+    required: [true, REQUIRE_FIELDS],
+    default: CORPORATE_SIGNATURE,
+  },
+  products: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Product",
+      required: true,
     },
-    name: {
-        type: String,
-        required: [true, REQUIRE_FIELDS],
-    },
-    image: {
-        type: String,
-        required: [true, REQUIRE_FIELDS],
-    },
-    category: {
-        type: String,
-        required: [true, REQUIRE_FIELDS],
-    },
-    quantity: {
-        type: Number,
-        required: [true, REQUIRE_FIELDS],
-    },
-    price: {
-        type: Number,
-        required: [true, REQUIRE_FIELDS],
-    },
-    corporateSignature: {
-        type: String,
-        required: [true, REQUIRE_FIELDS],
-        default: CORPORATE_SIGNATURE,
-    }
-    // companyLogo: {
-    //     type: String,
-    //     default: COMPANY_LOGO_DEFAULT,
-    // },
+  ],
+  buyer: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: false,
+  },
+  // companyLogo: {
+  //     type: String,
+  //     default: COMPANY_LOGO_DEFAULT,
+  // },
 });
 
-const Tickets = mongoose.model('Ticket', ticketSchema);
+const Tickets = mongoose.model("Ticket", ticketSchema);
 
 module.exports = Tickets;

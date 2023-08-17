@@ -1,6 +1,7 @@
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const Cart = require('../models/Cart.model');
 
 module.exports.register = (req, res, next) => {
     res.render('auth/register');
@@ -57,28 +58,64 @@ module.exports.register = (req, res, next) => {
     res.render('auth/login');
   }
   
-  const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
-    const passportController = passport.authenticate(strategy, (error, user, validations) => {
-      if (error) {
-        next(error)
-      } else if (!user) {
-        res.render('auth/login', {
-          user: req.body,
-          errors: validations
-        })
-      } else {
-        req.login(user, error => {
-          if (error) {
-            next(error);
-          } else {
-            res.redirect('/')
-          }
-        });
-      }
-    })
+  // const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
+  //   const passportController = passport.authenticate(strategy, (error, user, validations) => {
+  //     if (error) {
+  //       next(error)
+  //     } else if (!user) {
+  //       res.render('auth/login', {
+  //         user: req.body,
+  //         errors: validations
+  //       })
+  //     } else {
+  //       req.login(user, error => {
+  //         if (error) {
+  //           next(error);
+  //         } else {
+  //           res.redirect('/')
+  //         }
+  //       });
+  //     }
+  //   })
   
+  //   passportController(req, res, next);
+  // }
+
+  const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
+    const passportController = passport.authenticate(strategy, async (error, user, validations) => {
+        if (error) {
+            next(error);
+        } else if (!user) {
+            res.render('auth/login', {
+                user: req.body,
+                errors: validations
+            });
+        } else {
+            req.login(user, async error => {
+                if (error) {
+                    next(error);
+                } else {
+                    // Aquí, realizas la lógica para agregar el comprador al carrito
+                    try {
+                        const buyerId = user._id; // Supongo que el ID del comprador está en user._id
+                        const cart = new Cart({
+                            buyer: buyerId,
+                            products: [] // Puedes inicializar el array de productos aquí si es necesario
+                        });
+                        await cart.save();
+
+                        res.redirect('/');
+                    } catch (error) {
+                        next(error);
+                    }
+                }
+            });
+        }
+    });
+
     passportController(req, res, next);
-  }
+};
+
   
   module.exports.doLogin = (req, res, next) => {
     doLoginStrategy(req, res, next);
