@@ -1,4 +1,4 @@
-<form method="POST" action="/cart/{{product._id}}">
+<form method="POST" action="/cart/cart/{{product._id}}">
 {{> outletBar}}
 <div class="container mt-5 d-flex justify-content-center align-items-center">
   <div class="card mb-3" style="max-width: 900px;">
@@ -19,8 +19,12 @@
                 class="text-body-secondary"
               >{{product.price}} €</small></p>
     <div class="d-flex justify-content-center align-items-center">
-        <span class="badge bg-secondary me-2">{{product.brand}}</span>
-        <span
+      {{#switch product.brand}} 
+            {{#case 'adidas'}} <img src="" alt="adidas">{{/case}}
+            {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
+            {{#case 'avanzado'}} class="badge text-bg-success"{{/case}}
+            {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
+        {{/switch}}
 
         {{#switch product.level}} 
             {{#case 'iniciación'}} class="badge text-bg-primary"{{/case}}
@@ -31,10 +35,42 @@
         ><i class="fa fa-leaf me-1 m-2"></i>{{product.level}}
         </span>
     </div>
-    
-    <button class="btn btn-danger mt-3" >
-      Agregar al carrito
-    </button>
+
+    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Agregar al carrito
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Producto añadido a la cesta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{product.image}}" class="img-fluid rounded-start" alt="{{product.image}}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.longDescription}}</p>
+        <p class="card-text"><small class="text-body-secondary">{{product.price}} €</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-secondary"  href="/products/list">Seguir comprando</a>
+        <button type="submit" class="btn btn-primary">Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
           </div>
 
         </div>

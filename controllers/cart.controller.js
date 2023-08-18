@@ -12,8 +12,11 @@ module.exports.getCart = (req, res, next) => {
     Cart.find(req.query)
         .populate('buyer')
         .populate('products')
-        .then((cartItems) => {
-            res.render ('cart/cart', { cartItems, user });
+        .then((cart) => {
+            // const cartRender = cart[0]
+            res.render ('cart/cart', { cart });
+            // console.log(cartRender.buyer.username)
+        
         })
         .catch((err) => {
             console.log(err);
@@ -23,13 +26,11 @@ module.exports.getCart = (req, res, next) => {
 
 module.exports.addToCart = async (req, res, next) => {
     try {
-        const productId = req.params.productId; // Supongo que estás pasando el ID del producto como parámetro en la URL
-        const userId = req.user._id; // Supongo que la información del usuario está en req.user
+        const productId = req.params.id; 
+        const userId = req.user._id;
 
         // Obtener el producto deseado de la base de datos
         const product = await Product.findById(productId);
-
-        // Si el producto no existe, puedes manejar el error aquí
 
         // Crear o actualizar el carrito del usuario
         const cart = await Cart.findOneAndUpdate(
