@@ -1,0 +1,26 @@
+<h1>Carrito de Resumen de Compras</h1>
+
+<p>Bienvenido, {{ cart.0.buyer.username }}!</p>
+
+{{#if cart.0.products}}
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+            </tr>
+            {{#each cart.0.products}}
+            {{!-- {{#each this}} --}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.quantity}}</td>
+                    <td>{{this.price}}</td>
+                </tr>
+            {{/each}}
+            {{!-- {{/each}} --}}
+        </table>
+        {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
+    {{else}}
+        <p>No hay elementos en el carrito.</p>
+    {{/if}}

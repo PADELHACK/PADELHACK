@@ -6,13 +6,13 @@ const WELCOME_MESSAGE = "Gracias por confiar en Padelhack. Tu pedido está siend
 const CORPORATE_SIGNATURE = "El Equipo de Padelhack";
 
 
-const REQUIRE_FILDS = "Este Campo es requerido"
+const REQUIRE_FIELDS = "Este Campo es requerido"
 
 module.exports = {
   BRANDS,
   CATEGORY,
   LEVELS,
-  REQUIRE_FILDS,
+  REQUIRE_FIELDS,
   WELCOME_MESSAGE,
   CORPORATE_SIGNATURE
 }
