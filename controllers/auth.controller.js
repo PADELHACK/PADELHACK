@@ -2,13 +2,13 @@ const User = require('../models/User.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Cart = require('../models/Cart.model');
+const mailer = require('../config/nodemailer.config');
 
 module.exports.register = (req, res, next) => {
     res.render('auth/register');
   };
   
   module.exports.doRegister = (req, res, next) => {
-    console.log('req.body ', req.body)
     const { email, password, repeatPassword } = req.body
   
     const renderWithErrors = (errors) => {
@@ -29,7 +29,6 @@ module.exports.register = (req, res, next) => {
   
     User.findOne({ email })
       .then(user => {
-        console.log("PASA POR AQUI")
         if (user) {
           renderWithErrors({ email: 'Email already in use' });
         } else {
@@ -39,7 +38,8 @@ module.exports.register = (req, res, next) => {
           }
   
           return User.create(req.body)
-            .then(() => {
+            .then((user) => {
+              mailer.sendValidationEmail(user);
               res.redirect('/login')
             })
         }
@@ -137,3 +137,12 @@ module.exports.register = (req, res, next) => {
     req.session.destroy();
     res.redirect('/');
   }
+
+  module.exports.activate = (req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, { active: true })
+      .then(() => {
+        res.redirect('/login');
+      })
+      .catch(next);
+  };
+  

@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
       required: [true, REQUIRED_FIELD],
       match: [PASSWORD_PATTERN, INVALID_FIELD]
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
     googleID: {
       type: String
     }

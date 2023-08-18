@@ -13,6 +13,9 @@ router.post('/register', authMiddleware.isUnauthenticated, upload.single('avatar
 router.get('/login', authMiddleware.isUnauthenticated, authController.login);
 router.post('/login', authMiddleware.isUnauthenticated, authController.doLogin);
 
+//activate
+router.get('/users/:id/activate', authController.activate);
+
 router.get('/logout', authMiddleware.isAuthenticated, authController.logout);
 
 router.get('/login/google', authMiddleware.isUnauthenticated, authController.loginGoogle);
