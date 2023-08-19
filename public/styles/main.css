@@ -16,12 +16,27 @@ código de colores
     justify-content: center;
 }
 
+/* NAVBAR */
 nav{
     color: #D7F205 !important;
     background:   linear-gradient(45deg, #034C8C, #048ABF, #04B2D9, #05F2F2);
 }
-
-#navBar{
-  margin-bottom: 75px;
+nav #navbar-end a{
+    color: #034C8C !important;
+    font-weight: bold;
 }
-
+nav #navbar-end a i{
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+nav .badge{
+  background-color: #D7F205;
+  color: #034C8C;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
