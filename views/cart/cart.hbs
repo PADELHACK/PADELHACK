@@ -1,26 +1,58 @@
 <h1>Carrito de Resumen de Compras</h1>
 
-<p>Bienvenido, {{ cart.0.buyer.username }}!</p>
+<p>Bienvenido, {{cart.buyer.username}}!</p>
 
-{{#if cart.0.products}}
-        <table>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Total</th>
-            </tr>
-            {{#each cart.0.products}}
-            {{!-- {{#each this}} --}}
-                <tr>
-                    <td>{{this.name}}</td>
-                    <td>{{this.quantity}}</td>
-                    <td>{{this.price}}</td>
-                </tr>
-            {{/each}}
-            {{!-- {{/each}} --}}
-        </table>
-        {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
-    {{else}}
-        <p>No hay elementos en el carrito.</p>
-    {{/if}}
+{{#if cart.products}}
+  <table class="table">
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Precio Unitario</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+    {{#each cart.products}}
+      <tr>
+        <td>
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+        <a href="/products/detail/{{product._id}}" class="text-decoration-none">
+                <img
+                  src="{{this.product.image}}"
+                  class="img-fluid rounded-start"
+                  alt="{{this.image}}"
+                />
+          </a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{this.product.name}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+            <span>
+                {{this.quantity}}
+            </span>
+        </td>
+        <td id="price">{{this.product.price}} €</td>
+        <td>
+        <span class="subtotal">{{subtotal}} €</span> <!-- Mostramos el subtotal -->
+        </td>
+      </tr>
+    {{/each}}
+    {{!-- {{/each}} --}}
+  </table>
+  {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
+{{else}}
+  <p>No hay elementos en el carrito.</p>
+{{/if}}
+
+<script>
+ const price = document.querySelectorAll('#price');
+ const quantity = document.querySelectorAll('#quantity');
+
+
+</script>

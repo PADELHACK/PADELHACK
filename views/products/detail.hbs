@@ -26,6 +26,7 @@
             {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
         {{/switch}}
 
+      <span
         {{#switch product.level}} 
             {{#case 'iniciación'}} class="badge text-bg-primary"{{/case}}
             {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
@@ -35,10 +36,19 @@
         ><i class="fa fa-leaf me-1 m-2"></i>{{product.level}}
         </span>
     </div>
-
-    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Agregar al carrito
-</button>
+    
+<div class="d-flex justify-content-evenly align-items-center mt-5">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   Agregar al carrito
+   </button>
+  <input
+  class="w-25 h-25 p-1"
+  type="number"
+  placeholder="1"
+  value="1"
+  name="quantity"
+>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -79,34 +89,3 @@
   </div>
 </div>
 </form>
-
-{{!-- <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-  <div class="col-sm-12 col-xl-6">
-    <img src="{{product.image}}" class="img-fluid rounded border"/>
-  </div>
-  <div class="col-6">
-    <div class="col-md-2 col-sm-12 py-2">
-        <h3 class="font-weight-semi">{{product.name}}</h3>
-        <h4 class="text-body-secondary">{{product.price}} €</h4>
-        <h5 class="text-body-secondary">{{product.brand}}</h5>
-    </div>  
-  <div class="col-md-6 col-sm-12 py-2">
-    <p>{{{product.longDescription}}}</p>
-  </div>
-
-    <div class="row bg-white p-3 mx-auto mb-2">
-        <span class="badge bg-secondary">{{product.brand}}</span>
-        <span
-
-        {{#switch product.level}} 
-            {{#case 'iniciación'}} class="badge text-bg-primary"{{/case}}
-            {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
-            {{#case 'avanzado'}} class="badge text-bg-success"{{/case}}
-            {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
-        {{/switch}}
-        ><i class="fa fa-leaf me-1"></i>{{product.level}}
-        </span>
-    </div>
-  </div>
- 
-</div> --}}
