@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul id="navbar-start" class="navbar-nav me-auto mb-2 mb-lg-0">
         {{#unless currentUser}}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/products/list">Products</a>
@@ -28,14 +28,20 @@
               <li><a class="dropdown-item" href="/products/create">Create a Product</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/profile">Profile</a>
-          </li>
           </ul>
           <ul id="navbar-end" class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-center">
-          <li class="nav-item">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle img-fluid" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span><img src="{{currentUser.avatar}}" alt=""></span>{{currentUser.username}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" aria-current="page" href="/logout">Log out</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="nav-link" aria-current="page" href="/profile">Profile</a></li>
+            </ul>
+          {{!-- <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/logout">Log out</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/cart/cart"><i class="bi bi-cart4"></i>
             <span class="badge bg-warning">{{cart.totalProductsInCart}}</span>

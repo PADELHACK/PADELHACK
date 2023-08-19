@@ -21,6 +21,18 @@ nav{
     color: #D7F205 !important;
     background:   linear-gradient(45deg, #034C8C, #048ABF, #04B2D9, #05F2F2);
 }
+nav #navbar-start .dropdown-menu{
+  background-color: #034C8C;
+}
+nav #navbar-end{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+nav #navbar-end .dropdown-menu{
+    background-color: #05F2F2;
+}
 nav #navbar-end a{
     color: #034C8C !important;
     font-weight: bold;
@@ -39,4 +51,15 @@ nav .badge{
   position: absolute;
   top: 0;
   right: 0;
+}
+nav #navbar-end img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+nav .badge:hover{
+  background-color: #034C8C;
+  color: #D7F205;
+  transition: 0.3s;
 }
