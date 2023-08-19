@@ -25,9 +25,15 @@ module.exports.getCart = (req, res, next) => {
           subtotal: item.product.price * item.quantity,
         }));
         const total = cartWithSubtotals.reduce((acc, item) => acc + item.subtotal, 0);
-        console.log(total)
+        const totalProductsInCart = cart.products.reduce((total, item) => total + item.quantity, 0);
 
-        res.render('cart/cart', { cart: { buyer: cart.buyer, products: cartWithSubtotals, total:total} });
+        res.render('cart/cart', { 
+          cart: { 
+            buyer: cart.buyer, 
+            products: cartWithSubtotals, 
+            total:total,
+            totalProductsInCart: totalProductsInCart
+          } });
       }
     })
     .catch((err) => {

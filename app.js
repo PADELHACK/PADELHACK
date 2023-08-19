@@ -19,6 +19,9 @@ const session = require("./config/session.config");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
+
+
+
 /* Middlewares */
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ extended: false }));
@@ -31,6 +34,7 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;  
+    res.locals.products = req.products;
     next();
   });
 
