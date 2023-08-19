@@ -8,7 +8,7 @@
     "shortDescription": "Pala de iniciación",
     "longDescription": "Esta es una pala ideal para jugadores principiantes",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915038/Padelhack/adidas_pala2_hfbflr.jpg",
-    "quantity":10
+    "stock":10
   },
   {
     "name": "BABOLAT JET PREMURA 2 AZUL ROJO 30F22752 4100",
@@ -19,7 +19,7 @@
     "shortDescription": "Zapatillas para pádel",
     "longDescription": "Zapatillas diseñadas para el pádel con excelente agarre",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915122/Padelhack/babolat_zapatillas1_brdvma.jpg",
-    "quantity":15
+    "stock":15
   },
   {
     "name": "CHAQUETA BABOLAT PLAY AZUL",
@@ -30,7 +30,7 @@
     "shortDescription": "Camiseta de pádel",
     "longDescription": "Camiseta cómoda y transpirable para partidos de pádel",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915295/Padelhack/babolat_textil1_gerybe.jpg",
-    "quantity":5
+    "stock":5
   },
   {
     "name": "BOTE DE 4 BOLAS NOX PRO TITANIUM",
@@ -41,7 +41,7 @@
     "shortDescription": "Pelotas de pádel profesionales",
     "longDescription": "Pelotas de alta calidad para competiciones profesionales",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915367/Padelhack/nox_pelotas1_cekiei.jpg",
-    "quantity":8
+    "stock":8
   },
   {
     "name": "VARLION LW ITSV HARD",
@@ -52,7 +52,7 @@
     "shortDescription": "Pala de nivel avanzado",
     "longDescription": "Pala de alta gama para jugadores experimentados",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915435/Padelhack/varlion_pala1_xjouwb.jpg",
-    "quantity":20
+    "stock":20
   },
   {
     "name": "WILSON BELA PRO ROJO WRS331170",
@@ -63,7 +63,7 @@
     "shortDescription": "Zapatillas para principiantes",
     "longDescription": "Zapatillas cómodas para los que comienzan a jugar pádel",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915499/Padelhack/wilson_zapatillas1_antyl9.jpg",
-    "quantity":19
+    "stock":19
   },
   {
     "name": "SUDADERA MYSTICA CORAL MUJER",
@@ -74,7 +74,7 @@
     "shortDescription": "Camiseta transpirable",
     "longDescription": "Camiseta de secado rápido para partidos intensos",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915594/Padelhack/mystica_textil1_zwr5st.jpg",
-    "quantity":10
+    "stock":10
   },
   {
     "name": "BOTE DE BOLAS VIBORA ELITE TOUR",
@@ -85,7 +85,7 @@
     "shortDescription": "Pelotas profesionales",
     "longDescription": "Pelotas de alta calidad y durabilidad",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915675/Padelhack/vibora_pelotas1_smthak.jpg",
-    "quantity":17
+    "stock":17
   },
   {
     "name": "VIBOR-A ASSASINS",
@@ -96,7 +96,7 @@
     "shortDescription": "Pala de nivel profesional",
     "longDescription": "Pala utilizada por jugadores profesionales en competiciones",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915734/Padelhack/vibora_pala1_uwx4b6.jpg",
-    "quantity":13
+    "stock":13
   },
   {
     "name": "NOX AT10 LUX LIMITED EDITION",
@@ -107,7 +107,7 @@
     "shortDescription": "Zapatillas para jugadores avanzados",
     "longDescription": "Zapatillas con refuerzo en el tobillo para mayor estabilidad",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915946/Padelhack/nox_zapatillas1_ba1sme.jpg",
-    "quantity":2
+    "stock":2
   },
 {
     "name": "BLACK CROWN HURRICANE 2.0 2023",
@@ -118,7 +118,7 @@
     "shortDescription": "Pala de control",
     "longDescription": "Pala diseñada para un juego preciso y controlado",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916009/Padelhack/blackcrown_pala1_i6ztk6.jpg",
-    "quantity":8
+    "stock":8
   },
   {
     "name": "ADIDAS ADIZERO CYBERSONIC BLANCO AZUL GY9634",
@@ -129,7 +129,7 @@
     "shortDescription": "Zapatillas de diseño moderno",
     "longDescription": "Zapatillas con un diseño atractivo y cómodas para el juego",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916197/Padelhack/adidas_zapatillas2_haaxiy.jpg",
-    "quantity":14
+    "stock":14
   },
   {
     "name": "POLO STAR VIE CLASSIC BLANCO",
@@ -140,7 +140,7 @@
     "shortDescription": "Camiseta técnica",
     "longDescription": "Camiseta técnica para un rendimiento óptimo en el juego",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916333/Padelhack/starvie_textil1_gjdfop.jpg",
-    "quantity":3
+    "stock":3
   },
   {
     "name": "BOTE DE 3 BOLAS BABOLAT RED FOAM JUNIOR",
@@ -151,7 +151,7 @@
     "shortDescription": "Pelotas duraderas",
     "longDescription": "Pelotas resistentes y duraderas para partidos intensos",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916435/Padelhack/babolat_pelotas1_xt6r9v.jpg",
-    "quantity":4
+    "stock":4
   },
   {
     "name": "BABOLAT COUNTER VERTUO 2023",
@@ -162,7 +162,7 @@
     "shortDescription": "Pala con potencia",
     "longDescription": "Pala que proporciona un excelente poder en los golpes",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916487/Padelhack/babolat_pala1_fimk0g.jpg",
-    "quantity":15
+    "stock":15
   },
   {
     "name": "ADIDAS BARRICADE NEGRO HQ8415",
@@ -173,7 +173,7 @@
     "shortDescription": "Zapatillas transpirables",
     "longDescription": "Zapatillas con malla transpirable para evitar la humedad",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916608/Padelhack/adidas_zapatillas3_yaxxhj.jpg",
-    "quantity":12
+    "stock":12
   },
   {
     "name": "CAMISETA WILSON TEAM II V-NECK BLANCO MUJER",
@@ -184,7 +184,7 @@
     "shortDescription": "Camiseta con logo estampado",
     "longDescription": "Camiseta con diseño moderno y logo estampado",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916859/Padelhack/wilson_textil1_f0qbhh.jpg",
-    "quantity":19
+    "stock":19
   },
   {
     "name": "3 BOTES DE 3 BOLAS NOX STINGER",
@@ -195,7 +195,7 @@
     "shortDescription": "Pelotas de competición",
     "longDescription": "Pelotas de alta calidad para competiciones profesionales",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690916916/Padelhack/nox_pelotas2_voy7rv.jpg",
-    "quantity":1
+    "stock":1
   },
   {
     "name": "STARVIE METHEORA DUAL 2023",
@@ -206,7 +206,7 @@
     "shortDescription": "Pala de precisión",
     "longDescription": "Pala diseñada para un juego preciso y controlado",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690917001/Padelhack/starvie_pala1_yp7nyu.jpg",
-    "quantity":20
+    "stock":20
   },
   {
     "name": "BABOLAT JET PREMURA NEGRO AZUL 30F21752 2033",
@@ -217,7 +217,7 @@
     "shortDescription": "Zapatillas para principiantes",
     "longDescription": "Zapatillas cómodas y estables para jugadores principiantes",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690917100/Padelhack/babolat_zapatillas2_gu7kwm.jpg",
-    "quantity":1
+    "stock":1
   },
   {
     "name": "CAMISETA BABOLAT CREW NECK TEE LEBRÓN NEGRO",
@@ -228,6 +228,6 @@
     "shortDescription": "Camiseta con logo estampado",
     "longDescription": "Camiseta con diseño moderno y logo estampado",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1692292559/Padelhack/babolat_textil_2_weppdf.jpg",
-    "quantity":7
+    "stock":7
   }
 ]

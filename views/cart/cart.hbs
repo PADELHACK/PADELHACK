@@ -9,6 +9,7 @@
       <th scope="col">Cantidad</th>
       <th scope="col">Precio Unitario</th>
       <th scope="col">Subtotal</th>
+      <th scope="col">Acciones</th>
     </tr>
     {{#each cart.products}}
       <tr>
@@ -16,13 +17,16 @@
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-        <a href="/products/detail/{{product._id}}" class="text-decoration-none">
-                <img
-                  src="{{this.product.image}}"
-                  class="img-fluid rounded-start"
-                  alt="{{this.image}}"
-                />
-          </a>
+                <a
+                  href="/products/detail/{{product._id}}"
+                  class="text-decoration-none"
+                >
+                  <img
+                    src="{{this.product.image}}"
+                    class="img-fluid rounded-start"
+                    alt="{{this.image}}"
+                  />
+                </a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -33,17 +37,32 @@
           </div>
         </td>
         <td>
-            <span>
-                {{this.quantity}}
-            </span>
+          <span>
+            {{this.quantity}}
+          </span>
         </td>
         <td id="price">{{this.product.price}} €</td>
         <td>
-        <span class="subtotal">{{subtotal}} €</span> <!-- Mostramos el subtotal -->
+          <span class="subtotal">{{subtotal}} €</span>
+          <!-- Mostramos el subtotal -->
+        </td>
+        <td>
+          <form action="/cart/remove/{{this.product._id}}" method="POST">
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
         </td>
       </tr>
     {{/each}}
-    {{!-- {{/each}} --}}
+    <tr>
+      <td colspan="3" class="text-end"><span><strong>Total:</strong></span></td>
+      <td><span><strong>{{cart.total}} €</strong></span></td>
+      <td>
+        <form action="/cart/checkout" method="POST">
+          <button type="submit" class="btn btn-success">Comprar</button>
+        </form>
+      </td>
+    </tr>
+
   </table>
   {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
 {{else}}
@@ -51,8 +70,7 @@
 {{/if}}
 
 <script>
- const price = document.querySelectorAll('#price');
- const quantity = document.querySelectorAll('#quantity');
-
+  const price = document.querySelectorAll('#price'); const quantity =
+  document.querySelectorAll('#quantity');
 
 </script>
