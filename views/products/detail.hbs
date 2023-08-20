@@ -11,7 +11,7 @@
             <h5 class="card-title">{{product.name}}</h5>
             <p class="card-text">{{product.longDescription}}</p>
             <div class="d-flex flex-column justify-content-center align-items-start">
-              <p class="card-text"><small class="text-body-secondary">{{product.price}} €</small></p>
+              <p class="card-text"><small class="text-body-secondary"><strong>{{product.price}} €</strong></small></p>
               <div class="d-flex justify-content-center align-items-center">
                 {{#switch product.brand}}
                 {{#case 'Adidas'}} <img
@@ -63,7 +63,8 @@
               </div>
 
               <div class="d-flex justify-content-evenly align-items-center mt-5">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button id="addToCartBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">
                   Agregar al carrito
                 </button>
                 <input class="w-25 h-25 p-1" type="number" placeholder="1" value="1" name="quantity">
@@ -87,7 +88,10 @@
                             <div class="card-body">
                               <h5 class="card-title">{{product.name}}</h5>
                               <p class="card-text">{{product.longDescription}}</p>
-                              <p class="card-text"><small class="text-body-secondary">{{product.price}} €</small></p>
+                              <p class="card-text"><small class="text-body-secondary"><strong>{{product.price}}
+                                    €</strong></small></p>
+                              <p class="card-text"><small class="text-body-secondary">Quedan {{product.stock}}
+                                  unidades</small></p>
                             </div>
                           </div>
                         </div>
