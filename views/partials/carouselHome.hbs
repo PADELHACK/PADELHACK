@@ -1,27 +1,28 @@
-<div >
+<div>
   <div id="carouselExampleInterval" class="carousel slide mt-3 container" data-bs-ride="carousel">
     <div class="carousel-inner ">
       {{#each slide}}
-        <div class="carousel-item {{#isActive @index}} active {{/isActive}}" data-bs-interval="3000">
+      <div class="carousel-item {{#isActive @index}} active {{/isActive}}" data-bs-interval="3000">
         <div class="d-flex justify-content-center gap-3">
 
           <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-5 mt-3">
             {{#each this}}
-              <div class="card col m-4" style="width: 18rem;">
-                <img src="{{this.image}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{this.name}}</h5>
-                  <p class="card-text">{{this.shortDescription}}</p>
-                  <a href="/products/detail/{{this._id}}" class="btn btn-primary">Mas detalles</a>
-                </div>
+            <div class="card col m-4" style="width: 18rem;">
+              <img src="{{this.image}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.shortDescription}}</p>
+                <a href="/products/detail/{{this._id}}" class="btn btn-primary">Mas detalles</a>
               </div>
+            </div>
             {{/each}}
           </div>
         </div>
-        </div>
+      </div>
       {{/each}}
     </div>
-    {{!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    {{!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+      data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>

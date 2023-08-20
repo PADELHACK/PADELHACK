@@ -27,8 +27,8 @@
     "price": 30,
     "category": "textil",
     "level": "avanzado",
-    "shortDescription": "Camiseta de pádel",
-    "longDescription": "Camiseta cómoda y transpirable para partidos de pádel",
+    "shortDescription": "Chaqueta de pádel",
+    "longDescription": "Chaqueta cómoda y transpirable para partidos de pádel",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915295/Padelhack/babolat_textil1_gerybe.jpg",
     "stock": 5
   },
@@ -71,8 +71,8 @@
     "price": 25,
     "category": "textil",
     "level": "intermedio",
-    "shortDescription": "Camiseta transpirable",
-    "longDescription": "Camiseta de secado rápido para partidos intensos",
+    "shortDescription": "Sudadera transpirable",
+    "longDescription": "Sudadera de secado rápido para partidos intensos",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1690915594/Padelhack/mystica_textil1_zwr5st.jpg",
     "stock": 10
   },
@@ -302,8 +302,8 @@
     "price": 25,
     "category": "textil",
     "level": "intermedio",
-    "shortDescription": "Camiseta transpirable",
-    "longDescription": "Camiseta de secado rápido para partidos intensos",
+    "shortDescription": "Sudadera transpirable",
+    "longDescription": "Sudadera de secado rápido para partidos intensos",
     "image": "https://res.cloudinary.com/dinsqpato/image/upload/v1692528958/Padelhack/bullpadel_textil_1_ie3i1l.jpg",
     "stock": 10
   },
@@ -352,7 +352,7 @@
     "stock": 8
   },
   {
-    "name": "OMA T.OPEN 2223 CAQUI TOPENW2223PN",
+    "name": "JOMA T.OPEN 2223 CAQUI TOPENW2223PN",
     "brand": "Joma",
     "price": 85,
     "category": "zapatillas",
