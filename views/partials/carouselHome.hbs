@@ -1,72 +1,8 @@
-{{!-- <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner d-flex justify-content-center">
-    <div id="carousel-item2" class="carousel-item active">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915038/Padelhack/adidas_pala2_hfbflr.jpg" class="d-block w-25" alt="image1">
-      <div class="carousel-caption d-block w-25">
-        <h4>ADIDAS RX CARBON 2023</h4>
-        <h3>palas</h3>
-      </div>
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915122/Padelhack/babolat_zapatillas1_brdvma.jpg" class="d-block w-25" alt="image2">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915295/Padelhack/babolat_textil1_gerybe.jpg" class="d-block w-25" alt="image3">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915367/Padelhack/nox_pelotas1_cekiei.jpg" class="d-block w-25" alt="image4">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915435/Padelhack/varlion_pala1_xjouwb.jpg" class="d-block w-25" alt="image5">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915499/Padelhack/wilson_zapatillas1_antyl9.jpg" class="d-block w-25" alt="image6">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915594/Padelhack/mystica_textil1_zwr5st.jpg" class="d-block w-25" alt="image7">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915675/Padelhack/vibora_pelotas1_smthak.jpg" class="d-block w-25" alt="image8">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915734/Padelhack/vibora_pala1_uwx4b6.jpg" class="d-block w-25" alt="image9">
-    </div>
-    <div id="carousel-item2" class="carousel-item">
-      <img src="https://res.cloudinary.com/dinsqpato/image/upload/v1690915946/Padelhack/nox_zapatillas1_ba1sme.jpg" class="d-block w-25" alt="image10">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<style>
-    /* Estilos para pantallas grandes */
-    @media (min-width: 721px) {
-        img{
-            width: 400px;
-        }
-    }
-
-    /* Estilos para pantallas pequeñas */
-    @media (max-width: 720px) {
-        /* Agrega estilos específicos aquí si es necesario */
-        img{
-            height: 200px;
-        }
-    }
-</style> --}}
-
 <div >
   <div id="carouselExampleInterval" class="carousel slide mt-3 container" data-bs-ride="carousel">
     <div class="carousel-inner ">
       {{#each slide}}
-        <div class="carousel-item {{#isActive @index}} active {{/isActive}}" data-bs-interval="1000">
+        <div class="carousel-item {{#isActive @index}} active {{/isActive}}" data-bs-interval="3000">
         <div class="d-flex justify-content-center gap-3">
 
           <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-5 mt-3">
@@ -76,7 +12,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{this.name}}</h5>
                   <p class="card-text">{{this.shortDescription}}</p>
-                  <a href="/products/detail/{{this._id}}" class="btn btn-primary">See more details</a>
+                  <a href="/products/detail/{{this._id}}" class="btn btn-primary">Mas detalles</a>
                 </div>
               </div>
             {{/each}}
