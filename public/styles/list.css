@@ -8,7 +8,7 @@ margin: 2em
 .tarjeta{
 	width: 300px;
 	height: 350px;
-	background: #034C8C;
+	background: white;
 	position: relative;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;

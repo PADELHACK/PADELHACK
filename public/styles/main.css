@@ -7,6 +7,10 @@ código de colores
 #D7F205
 */
 
+body{
+  background: #F0F0F0;
+}
+
 #carousel-item2 {
   margin-left: -380px;
 }
@@ -17,9 +21,13 @@ código de colores
 }
 
 /* NAVBAR */
+#navbar{
+  margin-bottom: 75px;
+}
 nav{
     color: #D7F205 !important;
     background:   linear-gradient(45deg, #034C8C, #048ABF, #04B2D9, #05F2F2);
+    margin-bottom: 300px;
 }
 nav #navbar-start .dropdown-menu{
   background-color: #034C8C;
