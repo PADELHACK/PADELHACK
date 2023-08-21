@@ -1,47 +1,108 @@
-{{! Form nuevo producto }}
-<form method="POST" action="/products/doCreate" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label for="name" class="form-label">Nombre del Producto</label>
-    <input type="text" class="form-control" id="name" name="name" />
-  </div>
-  <div class="mb-3">
-    <label for="brand" class="form-label">Marca</label>
-    <input type="text" class="form-control" id="brand" name="brand" />
-  </div>
-  <div class="mb-3">
-    <label for="price" class="form-label">Precio (€)</label>
-    <input type="text" class="form-control" id="price" name="price" />
-  </div>
-  <div class="mb-3">
-    <label for="category" class="form-label">Categoría</label>
-    <input type="text" class="form-control" id="category" name="category" />
-  </div>
-  <div class="mb-3">
-    <label for="level" class="form-label">Nivel</label>
-    <input type="text" class="form-control" id="level" name="level" />
-  </div>
-  <div class="mb-3">
-    <label for="shortDescription" class="form-label">Descripción corta</label>
+<link rel="stylesheet" href="/styles/productsForm.css">
+
+
+<div id="form-product">
+  <div  class="container d-flex flex-column justify-content-center align-items-center">
+
+  <h1>Agregar Productos al almacén</h1>
+  <form class="row text-center" method="POST" action="/products/doCreate" enctype="multipart/form-data">
+    <div class="col">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" id="name" name="name" />
+      </div>
+      <div class="mb-3">
+        <label for="brand" class="form-label">Marca</label>
+        <select
+          class="form-select{{#if errors.brand}} is-invalid{{/if}}"
+          value="{{artwork.brand}}"
+          name="brand"
+        >
+          <option selected>Selecciona una categoría</option>
+          {{#each brand}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+        {{#if errors.brand}}
+          <div class="invalid-feedback">
+            {{errors.brand}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio (€)</label>
+        <input type="text" class="form-control" id="price" name="price" />
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Categoria</label>
+        <select
+          class="form-select{{#if errors.category}} is-invalid{{/if}}"
+          value="{{artwork.category}}"
+          name="category"
+        >
+          <option selected>Selecciona una categoría</option>
+          {{#each category}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+        {{#if errors.category}}
+          <div class="invalid-feedback">
+            {{errors.category}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="mb-3">
+        <label for="level" class="form-label">Nivel</label>
+        <select
+          class="form-select{{#if errors.level}} is-invalid{{/if}}"
+          value="{{artwork.level}}"
+          name="level"
+        >
+          <option selected>Selecciona una categoría</option>
+            {{#each level}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+          {{#if errors.level}}
+            <div class="invalid-feedback">
+              {{errors.level}}
+            </div>
+          {{/if}}
+      </div>
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stoc de productos</label>
+        <input type="number" class="form-control" id="stock" name="stock" />
+      </div>
+
+    </div>
+
+
+    <div class="col">
+<div class="mb-3">
     <textarea
       name="shortDescription"
       id="shortDescription"
       cols="30"
       rows="10"
-    ></textarea>
+    >Descripción corta</textarea>
   </div>
   <div class="mb-3">
-    <label for="longDescription" class="form-label">Descripción total</label>
     <textarea
       name="longDescription"
       id="longDescription"
       cols="30"
       rows="10"
-    ></textarea>
+    >Descripción total</textarea>
   </div>
-  <div class="mb-3">
+
+
+    </div>
+      <div class="mb-3">
     <label for="image" class="form-label">Imagen</label>
     <input type="file" class="form-control" id="image" name="image" />
   </div>
+  <button type="submit" class="btn btn-primary">enviar</button>
+  </form>
+  </div>
+</div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
