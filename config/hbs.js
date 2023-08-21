@@ -21,3 +21,21 @@ hbs.registerHelper('switch', function(value, options) {
       return options.fn(this);
     }
   });
+
+  hbs.registerHelper('activeFilter', function (options) {
+    const { query, param } = options.hash;
+  
+    if (query && query[param] ) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+  
+  hbs.registerHelper('activeItemFilter', function (options) {
+    const { query, param, value } = options.hash;
+  
+    if (query && query[param] === value) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });

@@ -1,22 +1,60 @@
 <link rel="stylesheet" href="/styles/list.css">
 
+{{> outletBar}}
 
-{{!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4">
-  {{#each products}}
-    <div class="cz">
-      <div class="card">
-        <a href="/products/detail/{{_id}}"><img src="{{image}}" class="card-img-top" alt="imagen de detalle"></a>
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{price}} €</h6>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{brand}}</h6>
-          <p class="card-text">{{shortDescription}}</p>
-          <a href="/products/detail/{{_id}}" class="btn btn-primary">See more details</a>
-        </div>
-      </div>
-    </div>
-  {{/each}}
-</div> --}}
+
+<div class="d-flex justify-content-center mt-3">
+  <div class="d-flex mb-3 align-items-center">
+  <div class="btn-group me-3">
+    <button type="button" class="btn {{#activeFilter query=query param='category'}}btn-success{{else}}btn-primary{{/activeFilter}}">Categoria</button>
+    <button type="button" class="btn {{#activeFilter query=query param='category'}}btn-success{{else}}btn-primary{{/activeFilter}} dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <form action="/products/list" method="get">
+        {{#each category}}
+          <li><button class="dropdown-item {{#activeItemFilter query=../query param='category' value=this}}active{{/activeItemFilter}}" name="category" value="{{this}}">{{this}}</button></li>
+        {{/each}}
+      </form>
+    </ul>
+  </div>
+</div>
+
+<div class="d-flex mb-3 align-items-center">
+  <div class="btn-group me-3">
+    <button type="button" class="btn {{#activeFilter query=query param='brand'}}btn-success{{else}}btn-primary{{/activeFilter}}">Marca</button>
+    <button type="button" class="btn {{#activeFilter query=query param='brand'}}btn-success{{else}}btn-primary{{/activeFilter}} dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <form action="/products/list" method="get">
+        {{#each brand}}
+          <li><button class="dropdown-item {{#activeItemFilter query=../query param='brand' value=this}}active{{/activeItemFilter}}" name="brand" value="{{this}}">{{this}}</button></li>
+        {{/each}}
+      </form>
+    </ul>
+  </div>
+</div>
+
+<div class="d-flex mb-3 align-items-center">
+  <div class="btn-group me-3">
+    <button type="button" class="btn {{#activeFilter query=query param='level'}}btn-success{{else}}btn-primary{{/activeFilter}}">Nivel</button>
+    <button type="button" class="btn {{#activeFilter query=query param='level'}}btn-success{{else}}btn-primary{{/activeFilter}} dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <form action="/products/list" method="get">
+        {{#each level}}
+          <li><button class="dropdown-item {{#activeItemFilter query=../query param='level' value=this}}active{{/activeItemFilter}}" name="level" value="{{this}}">{{this}}</button></li>
+        {{/each}}
+      </form>
+    </ul>
+  </div>
+</div>
+</div>
+  
+
+
 
 
 	<div class="wrap">

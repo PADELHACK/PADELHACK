@@ -39,8 +39,14 @@ app.use((req, res, next) => {
     res.locals.brand = BRANDS;
     res.locals.category = CATEGORY;
     res.locals.level = LEVELS;
+    req.brand = BRANDS;
+    req.category = CATEGORY;
+    req.level = LEVELS;
     next();
-  });
+});
+
+
+
 
 //routes
 const routes = require("./routes/index.routes");

@@ -1,10 +1,37 @@
 const mongoose = require('mongoose');
 const Product = require('../models/Product.model');
 
+
 module.exports.list =(req, res, next) => {
-    Product.find()
+    const { category, brand, level} = req.query;
+    const query = {};
+  
+    if (category) {
+      query.category = category;
+    }
+    if (brand) {
+      query.brand = brand;
+    }
+    if (level) {
+      query.level = level;
+    }
+
+    console.log({category})
+
+
+    Product.find(query)
+
     .then((products) => {
-        res.render('products/list', {products})
+        const viewQuery = {
+            category,
+            brand,
+            level,
+            hasFilter: category || brand || level,
+            };
+
+        res.render('products/list', {products, query:viewQuery})
+        //console.log(products)
+
     })
     .catch((err) => {
         console.log(err)
