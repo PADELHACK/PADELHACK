@@ -1,91 +1,115 @@
 <form method="POST" action="/cart/cart/{{product._id}}">
-{{> outletBar}}
-<div class="container mt-5 d-flex justify-content-center align-items-center">
-  <div class="card mb-3" style="max-width: 900px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img
-          src="{{product.image}}"
-          class="img-fluid rounded-start"
-          alt="{{product.image}}"
-        />
-      </div>
-      <div class="col-md-8 mt-5 ">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">{{product.longDescription}}</p>
-          <div class="d-flex flex-column justify-content-center align-items-start">
-            <p class="card-text"><small
-                class="text-body-secondary"
-              >{{product.price}} €</small></p>
-    <div class="d-flex justify-content-center align-items-center">
-      {{#switch product.brand}} 
-            {{#case 'adidas'}} <img src="" alt="adidas">{{/case}}
-            {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
-            {{#case 'avanzado'}} class="badge text-bg-success"{{/case}}
-            {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
-        {{/switch}}
+  {{> outletBar}}
+  <div class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="card mb-3" style="max-width: 900px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{product.image}}" class="img-fluid rounded-start" alt="{{product.image}}" />
+        </div>
+        <div class="col-md-8 mt-5 ">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.longDescription}}</p>
+            <div class="d-flex flex-column justify-content-center align-items-start">
+              <p class="card-text"><small class="text-body-secondary"><strong>{{product.price}} €</strong></small></p>
+              <div class="d-flex justify-content-center align-items-center">
+                {{#switch product.brand}}
+                {{#case 'Adidas'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692562911/Padelhack/logo_adidas_uu4ner.jpg"
+                  alt="Adidas" style="width: 100px; height: 60px" class="me-3">{{/case}}
+                {{#case 'Babolat'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692563620/Padelhack/logo_babolat_kawkcz.png"
+                  alt="Babolat" style="width: 120px; height: 70px" class="me-3">{{/case}}
+                {{#case 'Black Crown'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564034/Padelhack/logo_blackcrown_mmx4yy.webp"
+                  alt="Black Crown" style="width: 120px; height: 70px" class="me-3">{{/case}}
+                {{#case 'Bullpadel'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564157/Padelhack/logo_bullpadel_ckmg4n.jpg"
+                  alt="Bullpadel" style="width: 120px; height: 80px" class="me-3">{{/case}}
+                {{#case 'Head'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564226/Padelhack/logo_head_rpnmpa.jpg"
+                  alt="Head" style="width: 80px; height: 70px" class="me-3">{{/case}}
+                {{#case 'Joma'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564255/Padelhack/logo_joma_zmodsc.jpg"
+                  alt="Joma" style="width: 90px; height: 50px" class="me-3">{{/case}}
+                {{#case 'Mystica'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564310/Padelhack/logo_mystica_k3b6dq.png"
+                  alt="Mystica" style="width: 100px; height: 30px" class="me-3">{{/case}}
+                {{#case 'Nox'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564382/Padelhack/logo_nox_p7akif.png"
+                  alt="Nox" style="width: 100px; height: 60px" class="me-3">{{/case}}
+                {{#case 'Siux'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564481/Padelhack/logo_siux_mdqbrc.png"
+                  alt="Siux" style="width: 120px; height: 30px" class="me-3">{{/case}}
+                {{#case 'Star Vie'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564522/Padelhack/logo_starvie_ydig6o.jpg"
+                  alt="Star Vie" style="width: 120px; height: 60px" class="me-3">{{/case}}
+                {{#case 'Varlion'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564547/Padelhack/logo_varlion_r8ygul.png"
+                  alt="Varlion" style="width: 120px; height: 80px" class="me-3">{{/case}}
+                {{#case 'Vibor-A'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564851/Padelhack/logo_vibora_sff7a1.gif"
+                  alt="Vibor-A" style="width: 100px; height: 70px" class="me-3">{{/case}}
+                {{#case 'Wilson'}} <img
+                  src="https://res.cloudinary.com/dinsqpato/image/upload/v1692564878/Padelhack/logo_wilson_m31has.jpg"
+                  alt="Wilson" style="width: 100px; height: 50px" class="me-3">{{/case}}
+                {{/switch}}
 
-      <span
-        {{#switch product.level}} 
-            {{#case 'iniciación'}} class="badge text-bg-primary"{{/case}}
-            {{#case 'intermedio'}} class="badge text-bg-secondary"{{/case}}
-            {{#case 'avanzado'}} class="badge text-bg-success"{{/case}}
-            {{#case 'profesional'}} class="badge text-bg-danger"{{/case}}
-        {{/switch}}
-        ><i class="fa fa-leaf me-1 m-2"></i>{{product.level}}
-        </span>
-    </div>
-    
-<div class="d-flex justify-content-evenly align-items-center mt-5">
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-   Agregar al carrito
-   </button>
-  <input
-  class="w-25 h-25 p-1"
-  type="number"
-  placeholder="1"
-  value="1"
-  name="quantity"
->
-</div>
+                <span {{#switch product.level}} {{#case 'iniciación' }} class="badge text-bg-primary" {{/case}}
+                  {{#case 'intermedio' }} class="badge text-bg-secondary" {{/case}} {{#case 'avanzado' }}
+                  class="badge text-bg-success" {{/case}} {{#case 'profesional' }} class="badge text-bg-danger"
+                  {{/case}} {{/switch}}><i class="fa fa-leaf me-1 m-2"></i>{{product.level}}
+                </span>
+              </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Producto añadido a la cesta</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{product.image}}" class="img-fluid rounded-start" alt="{{product.image}}">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">{{product.longDescription}}</p>
-        <p class="card-text"><small class="text-body-secondary">{{product.price}} €</small></p>
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-secondary"  href="/products/list">Seguir comprando</a>
-        <button type="submit" class="btn btn-primary">Ir al carrito </button>
-      </div>
-    </div>
-  </div>
-</div>
+              <div class="d-flex justify-content-evenly align-items-center mt-5">
+                <button id="addToCartBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">
+                  Agregar al carrito
+                </button>
+                <input class="w-25 h-25 p-1" type="number" placeholder="1" value="1" name="quantity">
+              </div>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Producto añadido al carrito</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="{{product.image}}" class="img-fluid rounded-start" alt="{{product.image}}">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">{{product.name}}</h5>
+                              <p class="card-text">{{product.longDescription}}</p>
+                              <p class="card-text"><small class="text-body-secondary"><strong>{{product.price}}
+                                    €</strong></small></p>
+                              <p class="card-text"><small class="text-body-secondary">Quedan {{product.stock}}
+                                  unidades</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <a class="btn btn-secondary" href="/products/list">Seguir comprando</a>
+                      <button type="submit" class="btn btn-primary">Ir al carrito </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
           </div>
-
         </div>
       </div>
     </div>
   </div>
-</div>
 </form>

@@ -4,7 +4,7 @@ const Cart = require("../models/Cart.model");
 const Product = require("../models/Product.model");
 
 module.exports.getCart = (req, res, next) => {
-  const userId = req.user._id; 
+  const userId = req.user._id;
 
   Cart.findOne({ buyer: userId })
     .populate("buyer")
@@ -14,26 +14,33 @@ module.exports.getCart = (req, res, next) => {
         // Si no existe un carrito, creamos uno nuevo
         const newCart = new Cart({
           buyer: userId,
-          products: [{ product: product._id, quantity: quantity }] // Agregar el producto con cantidad 1
+          products: [{ product: product._id, quantity: quantity }], // Agregar el producto con cantidad 1
         });
         newCart.save();
       } else {
         // Si se encontró el carrito, renderizamos la vista con el carrito existente
-        const cartWithSubtotals = cart.products.map(item => ({
+        const cartWithSubtotals = cart.products.map((item) => ({
           product: item.product,
           quantity: item.quantity,
           subtotal: item.product.price * item.quantity,
         }));
-        const total = cartWithSubtotals.reduce((acc, item) => acc + item.subtotal, 0);
-        const totalProductsInCart = cart.products.reduce((total, item) => total + item.quantity, 0);
+        const total = cartWithSubtotals.reduce(
+          (acc, item) => acc + item.subtotal,
+          0
+        );
+        const totalProductsInCart = cart.products.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
 
-        res.render('cart/cart', { 
-          cart: { 
-            buyer: cart.buyer, 
-            products: cartWithSubtotals, 
-            total:total,
-            totalProductsInCart: totalProductsInCart
-          } });
+        res.render("cart/cart", {
+          cart: {
+            buyer: cart.buyer,
+            products: cartWithSubtotals,
+            total: total,
+            totalProductsInCart: totalProductsInCart,
+          },
+        });
       }
     })
     .catch((err) => {
@@ -54,11 +61,22 @@ module.exports.addToCart = async (req, res, next) => {
     // Buscar el carrito del usuario
     const cart = await Cart.findOne({ buyer: userId });
 
+    // // Verificar si hay suficiente stock para el producto
+    // if (product.stock < quantity) {
+    //   return res
+    //     .status(400)
+    //     .json({ error: "No hay suficiente stock disponible." });
+    // }
+
+    // Restar la cantidad del stock del producto
+    product.stock -= quantity;
+    await product.save();
+
     if (!cart) {
       // Si no existe un carrito, creamos uno nuevo
       const newCart = new Cart({
         buyer: userId,
-        products: [{ product: product._id, quantity: quantity }] // Agregar el producto con cantidad 1
+        products: [{ product: product._id, quantity: quantity }], // Agregar el producto con cantidad 1
       });
       await newCart.save();
     } else {
@@ -78,7 +96,7 @@ module.exports.addToCart = async (req, res, next) => {
       await cart.save();
     }
 
-    res.redirect("/cart/cart"); 
+    res.redirect("/cart/cart");
   } catch (error) {
     console.log(error);
     next(error);
@@ -86,7 +104,6 @@ module.exports.addToCart = async (req, res, next) => {
 };
 
 module.exports.removeFromCart = async (req, res, next) => {
-
   try {
     const productId = req.params.id;
     const userId = req.user._id;
@@ -110,33 +127,39 @@ module.exports.removeFromCart = async (req, res, next) => {
       }
 
       await cart.save();
-      res.redirect("/cart/cart"); 
+      res.redirect("/cart/cart");
     }
   } catch (error) {
     console.log(error);
     next(error);
   }
-}
+};
 
 //controlador de comprar
 
 module.exports.buy = async (req, res, next) => {
   try {
-    const userId = req.user._id; 
+    const userId = req.user._id;
     const productId = req.params.productId;
 
     // Buscar el carrito del usuario
-    const cart = await Cart.findOne({ buyer: userId }).populate('products.product');
+    const cart = await Cart.findOne({ buyer: userId }).populate(
+      "products.product"
+    );
 
     // Encontrar el producto en el carrito
-    const productInCart = cart.products.find(item => item.product._id.toString() === productId);
+    const productInCart = cart.products.find(
+      (item) => item.product._id.toString() === productId
+    );
 
     // Reducir la cantidad del producto en el carrito
     if (productInCart) {
       productInCart.quantity--;
       if (productInCart.quantity <= 0) {
         // Si la cantidad es cero o menos, eliminar el producto del carrito
-        cart.products = cart.products.filter(item => item.product._id.toString() !== productId);
+        cart.products = cart.products.filter(
+          (item) => item.product._id.toString() !== productId
+        );
       }
     }
 
@@ -150,9 +173,9 @@ module.exports.buy = async (req, res, next) => {
       await product.save();
     }
 
-    res.redirect('/cart/cart'); // Redirigir a la página del carrito
+    res.redirect("/cart/cart"); // Redirigir a la página del carrito
   } catch (error) {
-    console.error('Error al agregar al carrito:', error);
+    console.error("Error al agregar al carrito:", error);
     next(error);
   }
 };
