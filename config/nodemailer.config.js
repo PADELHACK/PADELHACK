@@ -35,3 +35,33 @@ module.exports.sendValidationEmail = (user) => {
       console.error('error sending mail', err);
     });
 };
+
+
+module.exports.sendTicketEmail = (ticket) => {
+  console.log(ticket)
+  console.log('ticket ID is: ' + ticket._id)
+  transporter
+    .sendMail({
+  
+      from: `"PadelHack" <${email}>`, // sender address
+      to: ticket.buyer.email, // list of receivers
+      subject: 'Your purchase', // Subject line
+      html: `
+                <h1>Your purchase</h1>
+
+                <p>Thanks for your purchase</p>
+
+                <p>Here you have your ticket</p>
+
+                <p>Products: ${ticket.products}</p>
+                <p>Subtotals: ${ticket.subTotals}</p>
+                <p>Total: ${ticket.total}</p>
+              `,
+    })
+    .then(() => {
+      console.log(`email sent to ${ticket.buyer.email}`);
+    })
+    .catch((err) => {
+      console.error('error sending mail', err);
+    });
+};

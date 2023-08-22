@@ -137,45 +137,45 @@ module.exports.removeFromCart = async (req, res, next) => {
 
 //controlador de comprar
 
-module.exports.buy = async (req, res, next) => {
-  try {
-    const userId = req.user._id;
-    const productId = req.params.productId;
+// module.exports.buy = async (req, res, next) => {
+//   try {
+//     const userId = req.user._id;
+//     const productId = req.params.productId;
 
-    // Buscar el carrito del usuario
-    const cart = await Cart.findOne({ buyer: userId }).populate(
-      "products.product"
-    );
+//     // Buscar el carrito del usuario
+//     const cart = await Cart.findOne({ buyer: userId }).populate(
+//       "products.product"
+//     );
 
-    // Encontrar el producto en el carrito
-    const productInCart = cart.products.find(
-      (item) => item.product._id.toString() === productId
-    );
+//     // Encontrar el producto en el carrito
+//     const productInCart = cart.products.find(
+//       (item) => item.product._id.toString() === productId
+//     );
 
-    // Reducir la cantidad del producto en el carrito
-    if (productInCart) {
-      productInCart.quantity--;
-      if (productInCart.quantity <= 0) {
-        // Si la cantidad es cero o menos, eliminar el producto del carrito
-        cart.products = cart.products.filter(
-          (item) => item.product._id.toString() !== productId
-        );
-      }
-    }
+//     // Reducir la cantidad del producto en el carrito
+//     if (productInCart) {
+//       productInCart.quantity--;
+//       if (productInCart.quantity <= 0) {
+//         // Si la cantidad es cero o menos, eliminar el producto del carrito
+//         cart.products = cart.products.filter(
+//           (item) => item.product._id.toString() !== productId
+//         );
+//       }
+//     }
 
-    // Guardar los cambios en el carrito
-    await cart.save();
+//     // Guardar los cambios en el carrito
+//     await cart.save();
 
-    // Restar la cantidad del producto en el modelo Product
-    const product = await Product.findById(productId);
-    if (product) {
-      product.stock -= 1; // Restamos 1 a la cantidad en stock
-      await product.save();
-    }
+//     // Restar la cantidad del producto en el modelo Product
+//     const product = await Product.findById(productId);
+//     if (product) {
+//       product.stock -= 1; // Restamos 1 a la cantidad en stock
+//       await product.save();
+//     }
 
-    res.redirect("/cart/cart"); // Redirigir a la página del carrito
-  } catch (error) {
-    console.error("Error al agregar al carrito:", error);
-    next(error);
-  }
-};
+//     res.redirect("/cart/cart"); // Redirigir a la página del carrito
+//   } catch (error) {
+//     console.error("Error al agregar al carrito:", error);
+//     next(error);
+//   }
+// };

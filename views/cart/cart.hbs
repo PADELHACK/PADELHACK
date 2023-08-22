@@ -3,6 +3,9 @@
 {{> outletBar}}
 
 {{#if cart.products}}
+
+<form action="/purchase" method="POST">
+
   <table class="table">
     <tr>
       <th scope="col">Producto</th>
@@ -57,14 +60,16 @@
       <td colspan="3" class="text-end"><span><strong>Total:</strong></span></td>
       <td><span><strong>{{cart.total}} €</strong></span></td>
       <td>
-        <form action="/cart/checkout" method="POST">
+
           <button type="submit" class="btn btn-success">Comprar</button>
-        </form>
+      
       </td>
     </tr>
 
   </table>
   {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
+
+</form>
 {{else}}
   <p>No hay elementos en el carrito.</p>
 {{/if}}

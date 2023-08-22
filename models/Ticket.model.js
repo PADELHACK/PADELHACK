@@ -1,43 +1,36 @@
 const mongoose = require("mongoose");
-const {
-  WELCOME_MESSAGE,
-  CORPORATE_SIGNATURE,
-  REQUIRE_FIELDS,
-} = require("../constants");
-
-// const COMPANY_LOGO_DEFAULT = "/path/to/default/logo.png"
 
 const ticketSchema = new mongoose.Schema({
-  weolcomeMessage: {
-    type: String,
-    required: [true, REQUIRE_FIELDS],
-    default: WELCOME_MESSAGE,
-  },
-  quantity: {
-    type: Number,
-    required: [true, REQUIRE_FIELDS],
-  },
-  corporateSignature: {
-    type: String,
-    required: [true, REQUIRE_FIELDS],
-    default: CORPORATE_SIGNATURE,
-  },
-  products: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Product",
-      required: true,
-    },
-  ],
+  products: {
+    type: [
+      {
+        product: {
+          type: mongoose.Types.ObjectId,
+          ref: "Product",
+          required: false,
+        },
+        quantity: {
+          type: Number,
+          default: 0
+        }
+      
+      },
+    ]
+  }
+  ,
   buyer: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: false,
   },
-  // companyLogo: {
-  //     type: String,
-  //     default: COMPANY_LOGO_DEFAULT,
-  // },
+  subTotals: {
+    type: Number,
+    default: 0
+  },
+  total: {
+    type: Number,
+    default: 0
+  }
 });
 
 const Tickets = mongoose.model("Ticket", ticketSchema);
