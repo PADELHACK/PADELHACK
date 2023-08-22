@@ -4,12 +4,9 @@ const passport = require('passport');
 const Cart = require('../models/Cart.model');
 const mailer = require('../config/nodemailer.config');
 
+
 module.exports.register = (req, res, next) => {
     res.render('auth/register');
-  };
-
-  module.exports.registerAdmin = (req, res, next) => {
-    res.render('users/registerAdmin');
   };
 
   
@@ -63,29 +60,6 @@ module.exports.register = (req, res, next) => {
     res.render('auth/login');
   }
   
-  // const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
-  //   const passportController = passport.authenticate(strategy, (error, user, validations) => {
-  //     if (error) {
-  //       next(error)
-  //     } else if (!user) {
-  //       res.render('auth/login', {
-  //         user: req.body,
-  //         errors: validations
-  //       })
-  //     } else {
-  //       req.login(user, error => {
-  //         if (error) {
-  //           next(error);
-  //         } else {
-  //           res.redirect('/')
-  //         }
-  //       });
-  //     }
-  //   })
-  
-  //   passportController(req, res, next);
-  // }
-
   const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
     const passportController = passport.authenticate(strategy, async (error, user, validations) => {
         if (error) {
@@ -150,4 +124,114 @@ module.exports.register = (req, res, next) => {
       })
       .catch(next);
   };
+
+  //ADMIN
+    module.exports.registerAdmin = (req, res, next) => {
+    res.render('users/registerAdmin');
+  };
+
+  module.exports.doRegisterAdmin = (req, res, next) => {
+    const { email, password, repeatPassword } = req.body
+  
+    const renderWithErrors = (errors) => {
+      res.render('users/registerAdmin', {
+        user: req.body,
+        errors
+      })
+    }
+  
+    if (password !== repeatPassword) {
+      return renderWithErrors({
+        repeatPassword: 'Passwords must match',
+        password: 'Passwords must match',
+      })
+    }
+  
+    // Comprobar si ya hay alguno en la bbdd con ese email
+  
+    User.findOne({ email })
+      .then(user => {
+        if (user) {
+          renderWithErrors({ email: 'Email already in use' });
+        } else {
+          const userData = {
+            ...req.body,
+            avatar: req.file ? req.file.path : undefined
+          }
+  
+          return User.create(req.body)
+            .then((user) => {
+              mailer.sendValidationEmail(user);
+              res.redirect('/users')
+            })
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        if (err instanceof mongoose.Error.ValidationError) {
+          renderWithErrors(err.errors);
+        } else {
+          next(err)
+        }
+      })
+  }
+
+
+  module.exports.usersList = (req, res, next) => {
+    User.find()
+      .then(users => {
+        res.render('users/list', { users });
+      })
+      .catch(next);
+  };
+
+  module.exports.delete = (req, res, next) => {
+    User.findByIdAndDelete(req.params.id)
+      .then(() => {
+        res.redirect('/users');
+      })
+      .catch(next);
+  }
+
+  module.exports.edit = (req, res, next) => {
+    User.findById(req.params.id)
+      .then(user => {
+        res.render('users/registerAdmin', { user });
+      })
+      .catch(next);
+  }
+
+        
+
+  module.exports.doEdit = (req, res, next) => {
+    console.log("entrando en doEdit"	)
+    const { username, email, role } = req.body;
+    const userData = {
+      username,
+      email,
+      role
+    }
+    if (req.file) {
+      userData.avatar = req.file.path;
+    }
+    User.findByIdAndUpdate(req.params.id, userData, { new: true })
+      .then(user => {
+        if (user) {
+          res.redirect('/users');
+        } else {
+          res.redirect('/users');
+        }
+      })
+      .catch(next);
+  }
+
+  module.exports.detailUser = (req, res, next) => {
+    User.findById(req.params.id)
+      .then(user => {
+        res.render('users/profile', { user });
+      })
+      .catch(next);
+  }
+
+
   

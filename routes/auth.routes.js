@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const authController = require('../controllers/auth.controller');
+const adminVerification = require('../middlewares/role.middleware')
+
 
 const authMiddleware = require('../middlewares/auth.middleware');
 const upload = require('../config/multer.config');
@@ -9,7 +11,18 @@ const upload = require('../config/multer.config');
 router.get('/register', authMiddleware.isUnauthenticated, authController.register);
 router.post('/register', authMiddleware.isUnauthenticated, upload.single('avatar'), authController.doRegister);
 
-router.get('/registerAdmin', authController.registerAdmin);
+
+//admin
+router.get('/registerAdmin', adminVerification.isAdmin  ,authController.registerAdmin);
+router.post('/registerAdmin', adminVerification.isAdmin  ,upload.single('avatar'), authController.doRegisterAdmin);
+router.get('/users', adminVerification.isAdmin  ,authController.usersList);
+router.get('/users/:id', adminVerification.isAdmin  ,authController.detailUser);
+router.get('/users/:id/delete', adminVerification.isAdmin  ,authController.delete);
+router.get('/users/:id/edit', adminVerification.isAdmin  ,authController.edit);
+router.post('/users/:id/edit', adminVerification.isAdmin  ,upload.single('avatar'), authController.doEdit);
+
+
+
 
 
 router.get('/login', authMiddleware.isUnauthenticated, authController.login);

@@ -51,7 +51,6 @@ module.exports.doCreate = (req, res, next) => {
 
     Product.create(data)
     .then(() => {
-        console.log('product created')
         res.redirect('/products/list')
     })
     .catch((err) => {
