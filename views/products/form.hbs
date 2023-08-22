@@ -15,7 +15,7 @@
         <label for="brand" class="form-label">Marca</label>
         <select
           class="form-select{{#if errors.brand}} is-invalid{{/if}}"
-          value="{{artwork.brand}}"
+          value="{{this.brand}}"
           name="brand"
         >
           <option selected>Selecciona una categoría</option>
@@ -37,7 +37,7 @@
         <label for="category" class="form-label">Categoria</label>
         <select
           class="form-select{{#if errors.category}} is-invalid{{/if}}"
-          value="{{artwork.category}}"
+          value="{{this.category}}"
           name="category"
         >
           <option selected>Selecciona una categoría</option>
@@ -55,7 +55,7 @@
         <label for="level" class="form-label">Nivel</label>
         <select
           class="form-select{{#if errors.level}} is-invalid{{/if}}"
-          value="{{artwork.level}}"
+          value="{{this.level}}"
           name="level"
         >
           <option selected>Selecciona una categoría</option>

@@ -32,10 +32,13 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="/products/create">Crear un Producto</a></li>
+            {{#isAdmin currentUser}}
+              <li><a class="dropdown-item" href="/products/create">Crear un Producto</a></li>
+              <li><a class="dropdown-item" href="/registerAdmin">Crear un Usuario</a></li>
+            {{/isAdmin}}
           </ul>
         </li>
-      </ul>
+              </ul>
       <ul id="navbar-end" class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-center">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle img-fluid" href="#" role="button" data-bs-toggle="dropdown"

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { REQUIRED_FIELD, INVALID_FIELD } = require('../errors');
+const {ROLE_OF_USERS} = require('../constants')
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -34,6 +35,12 @@ const userSchema = new mongoose.Schema(
     },
     googleID: {
       type: String
+    },
+    role:{
+      type: String,
+      required: [true, REQUIRED_FIELD],
+      enum: ROLE_OF_USERS,
+      default: "User"
     }
   },
   {

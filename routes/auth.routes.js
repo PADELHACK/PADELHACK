@@ -9,6 +9,8 @@ const upload = require('../config/multer.config');
 router.get('/register', authMiddleware.isUnauthenticated, authController.register);
 router.post('/register', authMiddleware.isUnauthenticated, upload.single('avatar'), authController.doRegister);
 
+router.get('/registerAdmin', authController.registerAdmin);
+
 
 router.get('/login', authMiddleware.isUnauthenticated, authController.login);
 router.post('/login', authMiddleware.isUnauthenticated, authController.doLogin);

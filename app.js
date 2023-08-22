@@ -6,7 +6,7 @@ const logger = require("morgan");
 const path = require("path");
 const createError = require('http-errors');
 const passport = require('passport');
-const {BRANDS, CATEGORY, LEVELS} = require('./constants')
+const {BRANDS, CATEGORY, LEVELS, ROLE_OF_USERS} = require('./constants')
 
 const app = express()
 
@@ -39,6 +39,7 @@ app.use((req, res, next) => {
     res.locals.brand = BRANDS;
     res.locals.category = CATEGORY;
     res.locals.level = LEVELS;
+    res.locals.role = ROLE_OF_USERS;
     req.brand = BRANDS;
     req.category = CATEGORY;
     req.level = LEVELS;

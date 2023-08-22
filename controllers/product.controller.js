@@ -16,7 +16,7 @@ module.exports.list =(req, res, next) => {
       query.level = level;
     }
 
-    console.log({category})
+  
 
 
     Product.find(query)
@@ -30,7 +30,7 @@ module.exports.list =(req, res, next) => {
             };
 
         res.render('products/list', {products, query:viewQuery})
-        //console.log(products)
+
 
     })
     .catch((err) => {
