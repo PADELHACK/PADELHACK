@@ -34,10 +34,30 @@
             </li>
             {{#isAdmin currentUser}}
               <li><a class="dropdown-item" href="/products/create">Crear un Producto</a></li>
-              <li><a class="dropdown-item" href="/registerAdmin">Crear un Usuario</a></li>
+
             {{/isAdmin}}
           </ul>
         </li>
+        {{!-- lista de usuarios --}}
+        {{#isAdmin currentUser}}
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Usuarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/users">Ver todos</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+              <li><a class="dropdown-item" href="/registerAdmin">Crear un Usuario</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tikets/list">Compras</a>
+        </li>
+        {{/isAdmin}}
               </ul>
       <ul id="navbar-end" class="navbar-nav me-0 mb-2 mb-lg-0 d-flex justify-content-center">
         <li class="nav-item dropdown">
@@ -52,10 +72,7 @@
             </li>
             <li><a class="nav-link" aria-current="page" href="/profile">Perfil</a></li>
           </ul>
-          {{!--
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/logout">Log out</a>
-        </li> --}}
+
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/cart/cart"><i class="bi bi-cart4"></i>
             <span class="badge bg-warning">{{cart.totalProductsInCart}}</span>

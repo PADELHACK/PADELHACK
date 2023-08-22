@@ -19,7 +19,6 @@ module.exports.goHome = (req, res, next) => {
       slide: slide,
     }
     );
-    console.log(slide)
   })
   .catch(next);
 };
