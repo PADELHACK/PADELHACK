@@ -7,6 +7,11 @@ const mailer = require('../config/nodemailer.config');
 module.exports.register = (req, res, next) => {
     res.render('auth/register');
   };
+
+  module.exports.registerAdmin = (req, res, next) => {
+    res.render('users/registerAdmin');
+  };
+
   
   module.exports.doRegister = (req, res, next) => {
     const { email, password, repeatPassword } = req.body

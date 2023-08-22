@@ -7,11 +7,14 @@ const CORPORATE_SIGNATURE = "El Equipo de Padelhack";
 
 const REQUIRE_FIELDS = "Este Campo es requerido"
 
+const ROLE_OF_USERS = ["SuperAdmin", "Admin", "User"]
+
 module.exports = {
   BRANDS,
   CATEGORY,
   LEVELS,
   REQUIRE_FIELDS,
   WELCOME_MESSAGE,
-  CORPORATE_SIGNATURE
+  CORPORATE_SIGNATURE,
+  ROLE_OF_USERS
 }

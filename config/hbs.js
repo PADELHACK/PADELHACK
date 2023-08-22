@@ -39,3 +39,16 @@ hbs.registerHelper('switch', function(value, options) {
     }
     return options.inverse(this);
   });
+
+  //evaluar si es admin o superadmin
+
+  hbs.registerHelper('isAdmin', function (user, options) {
+    if (user.role === 'Admin' || user.role === 'SuperAdmin') {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });
+  
+
+
