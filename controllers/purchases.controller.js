@@ -1,8 +1,6 @@
 const Ticket = require('../models/Ticket.model');
 const mailer = require('../config/nodemailer.config');
 const Cart = require('../models/Cart.model');
-
-
 //crear un ticket con la información del CART
 module.exports.createTicket = (req, res, next) => {
     const { _id } = req.user;
@@ -28,17 +26,20 @@ module.exports.createTicket = (req, res, next) => {
                 Ticket.create({
                     products: cartWithSubtotals.map(item => ({ product: item.product, quantity: item.quantity })), // Use correct structure
                     buyer: _id,
-
                     total: total,
                 })
                     .then((ticket) => {
-                        console.log(ticket);
+                        //console.log(ticket);
                         //elimina los productos del carrito
                         Cart.findByIdAndUpdate(cart._id, { products: [] })
                             .then(() => {
                                 //envia el email
-                                mailer.sendTicketEmail(ticket);
-
+                                const finalTicket = {
+                                    ...ticket,
+                                    products: cart.products,
+                                    buyer: req.user,
+                                }
+                                mailer.sendTicketEmail(finalTicket);
                         res.redirect('/profile');
                             })
                             .catch((error) => {
@@ -54,8 +55,6 @@ module.exports.createTicket = (req, res, next) => {
             next(error);
         });
 };
-
-
 module.exports.listTickets = (req, res, next) => {
     Ticket.find()
         .populate('products.product')
@@ -66,6 +65,5 @@ module.exports.listTickets = (req, res, next) => {
             next(error);
         });
 };
-
 
 
