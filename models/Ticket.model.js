@@ -23,7 +23,7 @@ const ticketSchema = new mongoose.Schema({
     ref: "User",
     required: false,
   },
-  subTotals: {
+  subTotal: {
     type: Number,
     default: 0
   },

@@ -15,6 +15,12 @@
       <th scope="col">Acciones</th>
     </tr>
     {{#each cart.products}}
+
+     <input type="hidden" name="products" value="{{this.product._id}}">
+    <input type="hidden" name="quantities" value="{{this.quantity}}">
+    <input type="hidden" name="total" value="{{cart.total}}">
+    <input type="hidden" name="subtotal" value="{{this.subtotal}}">
+
       <tr>
         <td>
           <div class="card mb-3" style="max-width: 540px;">
@@ -74,8 +80,8 @@
   <p>No hay elementos en el carrito.</p>
 {{/if}}
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
-  const price = document.querySelectorAll('#price'); const quantity =
-  document.querySelectorAll('#quantity');
 
 </script>
