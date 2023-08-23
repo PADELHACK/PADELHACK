@@ -55,11 +55,19 @@ module.exports.createTicket = (req, res, next) => {
             next(error);
         });
 };
+
+
+
+
+
+
 module.exports.listTickets = (req, res, next) => {
-    Ticket.find()
+    const { _id } = req.user;
+    Ticket.find({ buyer: _id })
         .populate('products.product')
         .then((tickets) => {
-            res.render('users/profile', { tickets });
+            console.log(tickets.products);
+            res.render('users/profile', { tickets: tickets });
         })
         .catch((error) => {
             next(error);
