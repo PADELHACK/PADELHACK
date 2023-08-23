@@ -58,8 +58,9 @@ module.exports.createTicket = (req, res, next) => {
 
 module.exports.listTickets = (req, res, next) => {
     Ticket.find()
+        .populate('products.product')
         .then((tickets) => {
-            res.rennder('users/profile', { tickets });
+            res.render('users/profile', { tickets });
         })
         .catch((error) => {
             next(error);
