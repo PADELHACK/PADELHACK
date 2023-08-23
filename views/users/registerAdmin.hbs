@@ -1,80 +1,61 @@
-
-{{#if currentUser}}
-<h1 class="mt-2 ms-5">Edita un Usuario</h1>
-<form class="container" action="/users/{{user._id}}/edit" method="POST" class="mt-3 ms-5" enctype="multipart/form-data">
-{{else}}
 <h1 class="mt-2 ms-5">Crea un Usuario</h1>
 <form class="container" action="/registerAdmin" method="POST" class="mt-3 ms-5" enctype="multipart/form-data">
-{{/if}}
-
 
   <div class="col-md-3">
     <label for="email" class="form-label">Email address</label>
-    <input
-      class="form-control{{#if errors.email}} is-invalid{{/if}}"
-      name="email" type="email" id="email" placeholder="name@example.com" value="{{user.email}}" required
-    >
+    <input class="form-control{{#if errors.email}} is-invalid{{/if}}" name="email" type="email" id="email"
+      placeholder="name@example.com" value="{{user.email}}" required>
     {{#if errors.email}}
-      <div class="invalid-feedback">
-        {{errors.email}}
-      </div>
+    <div class="invalid-feedback">
+      {{errors.email}}
+    </div>
     {{/if}}
   </div>
- <label for="role" class="form-label">Rol del Usuario</label>
-        <select
-          class="form-select{{#if errors.role}} is-invalid{{/if}}"
-          value="{{this.role}}"
-          name="role"
-        >
-          <option selected>Selecciona una categoría</option>
-          {{#each role}}
-          <option value="{{this}}">{{this}}</option>
-          {{/each}}
-        </select>
-        {{#if errors.role}}
-          <div class="invalid-feedback">
-            {{errors.role}}
-          </div>
-        {{/if}}
+  <label for="role" class="form-label">Rol del Usuario</label>
+  <select class="form-select{{#if errors.role}} is-invalid{{/if}}" value="{{this.role}}" name="role">
+    <option selected>Selecciona una categoría</option>
+    {{#each role}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  {{#if errors.role}}
+  <div class="invalid-feedback">
+    {{errors.role}}
   </div>
-  
+  {{/if}}
+  </div>
+
 
   <div class="col-md-3 mt-3">
     <label for="username" class="form-label">Nombre Completo</label>
-    <input
-      class="form-control{{#if errors.username}} is-invalid{{/if}}"
-      name="username" type="text" id="username" value="{{user.username}}" required
-    >
+    <input class="form-control{{#if errors.username}} is-invalid{{/if}}" name="username" type="text" id="username"
+      value="{{user.username}}" required>
     {{#if errors.username}}
-      <div class="invalid-feedback">
-        {{errors.username}}
-      </div>
+    <div class="invalid-feedback">
+      {{errors.username}}
+    </div>
     {{/if}}
   </div>
 
   <div class="col-md-3 mt-3">
     <label for="password" class="form-label">Password</label>
-    <input
-      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="password" type="password" id="password" required
-    >
+    <input class="form-control{{#if errors.password}} is-invalid{{/if}}" name="password" type="password" id="password"
+      required>
     {{#if errors.password}}
-      <div class="invalid-feedback">
-        {{errors.password}}
-      </div>
+    <div class="invalid-feedback">
+      {{errors.password}}
+    </div>
     {{/if}}
   </div>
-  
+
   <div class="col-md-3 mt-3">
     <label for="repeatPassword" class="form-label">Repeat password</label>
-    <input
-      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="repeatPassword" type="password" id="repeatPassword" required
-    >
+    <input class="form-control{{#if errors.password}} is-invalid{{/if}}" name="repeatPassword" type="password"
+      id="repeatPassword" required>
     {{#if errors.repeatPassword}}
-      <div class="invalid-feedback">
-        {{errors.repeatPassword}}
-      </div>
+    <div class="invalid-feedback">
+      {{errors.repeatPassword}}
+    </div>
     {{/if}}
   </div>
 
@@ -83,19 +64,5 @@
     <input class="form-control" type="file" id="avatar" name="avatar">
   </div>
 
-  {{#if currentUser}}
-    <button class="btn btn-warning mt-3" type="submit">Editar al usuario</button>
-  {{else}}
-
-    <button class="btn btn-primary mt-3" type="submit">Crear un usuario</button>
+  <button class="btn btn-primary mt-3" type="submit">Crear un usuario</button>
 </form>
-  {{/if}}
-
-
-  <script>
-    const button = document.querySelector('button[type="submit"]');
-
-    button.addEventListener('click', () => {
-      console.log('click');
-    });
-  </script>

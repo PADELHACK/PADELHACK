@@ -196,7 +196,7 @@ module.exports.register = (req, res, next) => {
   module.exports.edit = (req, res, next) => {
     User.findById(req.params.id)
       .then(user => {
-        res.render('users/registerAdmin', { user });
+        res.render('users/edit', { user });
       })
       .catch(next);
   }
