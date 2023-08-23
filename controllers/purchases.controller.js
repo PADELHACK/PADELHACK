@@ -28,7 +28,7 @@ module.exports.createTicket = (req, res, next) => {
                 Ticket.create({
                     products: cartWithSubtotals.map(item => ({ product: item.product, quantity: item.quantity })), // Use correct structure
                     buyer: _id,
-                    subTotal: total,
+
                     total: total,
                 })
                     .then((ticket) => {

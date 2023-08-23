@@ -16,21 +16,17 @@ const ticketSchema = new mongoose.Schema({
       
       },
     ]
-  }
-  ,
+  },
   buyer: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: false,
   },
-  subTotal: {
-    type: Number,
-    default: 0
-  },
   total: {
     type: Number,
     default: 0
-  }
+  },
+  timestamps: true,
 });
 
 const Tickets = mongoose.model("Ticket", ticketSchema);
