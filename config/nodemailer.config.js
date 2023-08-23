@@ -25,7 +25,7 @@ module.exports.sendValidationEmail = (user) => {
 
                 <p>Activate your account</p>
 
-                <a href="${process.env.APP_HOST}/users/${user._id}/activate">Click here</a>
+                <a href="${process.env.APP}/users/${user._id}/activate">Click here</a>
               `,
     })
     .then(() => {
