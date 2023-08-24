@@ -59,11 +59,12 @@
                   {{#case 'intermedio' }} class="badge text-bg-secondary" {{/case}} {{#case 'avanzado' }}
                   class="badge text-bg-success" {{/case}} {{#case 'profesional' }} class="badge text-bg-danger"
                   {{/case}} {{/switch}}><i class="fa fa-leaf me-1 m-2"></i>{{product.level}}
-                </span>                
+                </span>
               </div>
-              <p class="card-text"><small class="text-body-secondary">Quedan {{product.stock}}
-                    unidades</small></p>
 
+              {{#if currentUser}}
+              <p class="card-text"><small class="text-body-secondary">Quedan {{product.stock}}
+                  unidades</small></p>
               <div class="d-flex justify-content-evenly align-items-center mt-5">
                 <button id="addToCartBtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#exampleModal">
@@ -71,6 +72,7 @@
                 </button>
                 <input class="w-25 h-25 p-1" type="number" placeholder="1" value="1" name="quantity">
               </div>
+              {{/if}}
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
