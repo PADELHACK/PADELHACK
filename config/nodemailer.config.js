@@ -35,8 +35,8 @@ const parseProducts = (products) => {
     return `
       <li>
         <h3>${product.product.name}</h3>
-        <p>${product.product.price}</p>
-        <p>${product.quantity}</p>
+        <p>Precio: ${product.product.price} €</p>
+        <p>Cantidad: ${product.quantity}</p>
       </li>
     `;
   });
@@ -50,12 +50,11 @@ module.exports.sendTicketEmail = (ticket) => {
       to: ticket.buyer.email, // list of receivers
       subject: 'Your purchase', // Subject line
       html: `
-                <h1>Your purchase</h1>
-                <p>Thanks for your purchase</p>
-                <p>Here you have your ticket</p>
-                <p>Products: </p>
+                <h1>Confirmación de Compra</h1>
+                <h3>Gracias por confiar en Padelhack.</h3>
+                <h3>Aquí tienes los detalles de tu pedido.</h3>
+                <p>Productos: </p>
                 ${parseProducts(ticket.products)}
-                <p>Subtotals: ${ticket.subTotals}</p>
                 <p>Total: ${ticket.total}</p>
               `,
     })
