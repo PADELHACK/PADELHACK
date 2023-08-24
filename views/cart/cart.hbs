@@ -4,84 +4,61 @@
 
 {{#if cart.products}}
 
-<form action="/purchase" method="POST">
-
-  <table class="table">
-    <tr>
-      <th scope="col">Producto</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Precio Unitario</th>
-      <th scope="col">Subtotal</th>
-      <th scope="col">Acciones</th>
-    </tr>
-    {{#each cart.products}}
-
-     <input type="hidden" name="products" value="{{this.product._id}}">
-    <input type="hidden" name="quantities" value="{{this.quantity}}">
-    <input type="hidden" name="total" value="{{cart.total}}">
-    <input type="hidden" name="subtotal" value="{{this.subtotal}}">
-
-      <tr>
-        <td>
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <a
-                  href="/products/detail/{{product._id}}"
-                  class="text-decoration-none"
-                >
-                  <img
-                    src="{{this.product.image}}"
-                    class="img-fluid rounded-start"
-                    alt="{{this.image}}"
-                  />
-                </a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{this.product.name}}</h5>
-                </div>
-              </div>
+<table class="table">
+  <tr>
+    <th scope="col">Producto</th>
+    <th scope="col">Cantidad</th>
+    <th scope="col">Precio Unitario</th>
+    <th scope="col">Subtotal</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  {{#each cart.products}}
+  <tr>
+    <td>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <a href="/products/detail/{{product._id}}" class="text-decoration-none">
+              <img src="{{this.product.image}}" class="img-fluid rounded-start" alt="{{this.image}}" />
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{this.product.name}}</h5>
             </div>
           </div>
-        </td>
-        <td>
-          <span>
-            {{this.quantity}}
-          </span>
-        </td>
-        <td id="price">{{this.product.price}} €</td>
-        <td>
-          <span class="subtotal">{{subtotal}} €</span>
-          <!-- Mostramos el subtotal -->
-        </td>
-        <td>
-          <form action="/cart/remove/{{this.product._id}}" method="POST">
-            <button type="submit" class="btn btn-danger">Eliminar</button>
-          </form>
-        </td>
-      </tr>
-    {{/each}}
-    <tr>
-      <td colspan="3" class="text-end"><span><strong>Total:</strong></span></td>
-      <td><span><strong>{{cart.total}} €</strong></span></td>
-      <td>
+        </div>
+      </div>
+    </td>
+    <td>
+      <span>{{this.quantity}}</span>
+    </td>
+    <td id="price">{{this.product.price}} €</td>
+    <td>
+      <span class="subtotal">{{subtotal}} €</span>
+      <!-- Mostramos el subtotal -->
+    </td>
+    <td>
+      <form action="/cart/remove/{{this.product._id}}" method="POST">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+      </form>
+    </td>
+  </tr>
+  {{/each}}
+  <tr>
+    <td colspan="3" class="text-end"><span><strong>Total:</strong></span></td>
+    <td><span><strong>{{cart.total}} €</strong></span></td>
+    <td>
+      <form action="/purchase" method="POST">
+        <input type="hidden" name="products" value="{{#each cart.products}}{{this.product._id}},{{/each}}">
+        <input type="hidden" name="quantities" value="{{#each cart.products}}{{this.quantity}},{{/each}}">
+        <input type="hidden" name="total" value="{{cart.total}}">
+        <button type="submit" class="btn btn-success">Comprar</button>
+      </form>
+    </td>
+  </tr>
+</table>
 
-          <button type="submit" class="btn btn-success">Comprar</button>
-      
-      </td>
-    </tr>
-
-  </table>
-  {{!-- <p>Total a Pagar: {{getTotalAmount cartItems}}</p> --}}
-
-</form>
 {{else}}
-  <p>No hay elementos en el carrito.</p>
+<p>No hay elementos en el carrito.</p>
 {{/if}}
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-<script>
-
-</script>
