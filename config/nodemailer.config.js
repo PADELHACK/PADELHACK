@@ -16,11 +16,11 @@ module.exports.sendValidationEmail = (user) => {
     .sendMail({
       from: `"PadelHack" <${email}>`,
       to: user.email,
-      subject: "Welcome to PadelHack",
+      subject: "Bienvenido a Padelhack",
       html: `
-        <h1>Welcome to PadelHack</h1>
-        <p>Activate your account</p>
-        <a href="${process.env.APP}/users/${user._id}/activate">Click here</a>
+        <h1>Bienvenido a Padelhack</h1>
+        <p>Activa tu cuenta en el siguiente enlace</p>
+        <a href="${process.env.APP}/users/${user._id}/activate">Click aquí</a>
       `,
     })
     .then(() => {
