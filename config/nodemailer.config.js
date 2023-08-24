@@ -48,7 +48,7 @@ module.exports.sendTicketEmail = (ticket) => {
       subject: "Confirmación de Compra",
       html: `
         <p>¡Hola Padelhacker!</p>
-        <p>¿Gracias por confiar en nosotros!</p>
+        <p>¡Gracias por confiar en nosotros!</p>
         <p>Aquí tienes los detalles de tu pedido:</p>
         <table style="border-collapse: collapse; width: 100%;">
           <thead>
