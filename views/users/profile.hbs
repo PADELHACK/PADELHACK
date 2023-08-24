@@ -1,45 +1,50 @@
-<div class="m-3 row row-xl-cols-2 row-md-cols-1 row-sm-cols-1">
-  <div class="col">
-    <img src="{{user.avatar}}" class="rounded-circle" alt="profile-img" />
-  </div>
-  <div class="col d-flex flex-column justify-content-center ">
-    <h1> Mi Perfil</h1>
-    <h2>{{user.username}}</h2>
-    <h3>{{user.email}}</h3>
+<div class="container pt-5">
+  <div class="m-3 row row-xl-cols-2 row-md-cols-1 row-sm-cols-1">
+    <div class="col">
+      <img src="{{user.avatar}}" class="rounded-circle" alt="profile-img" />
+    </div>
+    <div class="col d-flex flex-column justify-content-center">
+      <h1> Mi Perfil</h1>
+      <h2>{{user.username}}</h2>
+      <h3>{{user.email}}</h3>
+    </div>
   </div>
 
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Compras</h1>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Proveedor</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each tickets}}
-            {{#each this.products}}
-              <tr>
-                <td>Aquí va la fecha</td> 
-                <td>{{this.product.brand}}</td>
-                <td>{{this.product.name}}</td>
-                <td>{{this.quantity}}</td>
-                <td>{{this.product.price}}</td>
-                <td>{{this.subtotal}}</td>
-              </tr>
+  <div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Compras</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Proveedor</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each tickets}}
+              {{#each this.products}}
+                <tr>
+                  <td>{{date}}</td>
+                  <td>{{this.product.brand}}</td>
+                  <td>{{this.product.name}}</td>
+                  <td>{{this.quantity}}</td>
+                  <td id="proce">{{this.product.price}}</td>
+                  <td id="subtotal">{{subtotal}}</td>
+                </tr>
+              {{/each}}
             {{/each}}
-          {{/each}}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
+
+
+{{> outletBar}}
+ 

@@ -40,7 +40,7 @@ module.exports.createTicket = (req, res, next) => {
                                     buyer: req.user,
                                 }
                                 mailer.sendTicketEmail(finalTicket);
-                        res.redirect('/profile');
+                                res.redirect('/profile');
                             })
                             .catch((error) => {
                                 next(error);
@@ -57,21 +57,34 @@ module.exports.createTicket = (req, res, next) => {
 };
 
 
-
-
-
+const formatDate = (date) => {
+    const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('es-ES', options);
+};
 
 module.exports.listTickets = (req, res, next) => {
     const { _id } = req.user;
     Ticket.find({ buyer: _id })
         .populate('products.product')
         .then((tickets) => {
-            console.log(tickets.products);
-            res.render('users/profile', { tickets: tickets });
+
+            const subtotal = tickets.forEach((ticket) => {
+                ticket.products.forEach((product) => {
+                    return product.subtotal = product.product.price * product.quantity;
+                });
+            })
+
+            tickets.forEach((ticket) => {
+                ticket.products.forEach((product) => {
+                    product.date = formatDate(ticket.createdAt);
+                });
+            });
+            res.render('users/profile', { user: req.user, tickets: tickets, subtotal: subtotal });
         })
         .catch((error) => {
             next(error);
         });
 };
+
 
 
