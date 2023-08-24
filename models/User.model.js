@@ -45,16 +45,8 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    // virtuals: true,
   }
 );
-
-// userSchema.virtual('artworks', {
-//   ref: 'Artwork',
-//   foreignField: 'owner',
-//   localField: '_id',
-//   justOne: false
-// });
 
 userSchema.pre('save', function(next) {
   if (this.isModified('password')) {

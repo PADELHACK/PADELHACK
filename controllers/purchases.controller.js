@@ -11,7 +11,7 @@ module.exports.createTicket = (req, res, next) => {
                 res.redirect('/logout')
             } else {
                 const cartWithSubtotals = cart.products.map((item) => ({
-                    product: item.product._id, // Use _id here
+                    product: item.product._id,
                     quantity: item.quantity,
                     subtotal: item.product.price * item.quantity,
                 }));
@@ -24,12 +24,11 @@ module.exports.createTicket = (req, res, next) => {
                     0
                 );
                 Ticket.create({
-                    products: cartWithSubtotals.map(item => ({ product: item.product, quantity: item.quantity })), // Use correct structure
+                    products: cartWithSubtotals.map(item => ({ product: item.product, quantity: item.quantity })),
                     buyer: _id,
                     total: total,
                 })
                     .then((ticket) => {
-                        //console.log(ticket);
                         //elimina los productos del carrito
                         Cart.findByIdAndUpdate(cart._id, { products: [] })
                             .then(() => {

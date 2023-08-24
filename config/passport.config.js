@@ -10,7 +10,6 @@ passport.serializeUser((user, next) => {
 
 passport.deserializeUser((id, next) => {
   User.findById(id)
-    // .populate('artworks') // Que req.user va a tener los artworks
     .then(user => next(null, user))
     .catch(err => next(err))
 });

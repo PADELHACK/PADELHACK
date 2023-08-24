@@ -123,7 +123,6 @@ module.exports.activate = (req, res, next) => {
     .catch(next);
 };
 
-//ADMIN
 module.exports.registerAdmin = (req, res, next) => {
   res.render("users/registerAdmin");
 };
@@ -144,8 +143,6 @@ module.exports.doRegisterAdmin = (req, res, next) => {
       password: "Passwords must match",
     });
   }
-
-  // Comprobar si ya hay alguno en la bbdd con ese email
 
   User.findOne({ email })
     .then((user) => {
