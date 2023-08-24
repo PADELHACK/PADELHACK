@@ -47,16 +47,15 @@ module.exports.sendTicketEmail = (ticket) => {
       to: ticket.buyer.email,
       subject: "Confirmación de Compra",
       html: `
-        <h2>Confirmación de Compra</h2>
-        <p>Gracias por confiar en Padelhack.</p>
-        <p>Aquí tienes los detalles de tu pedido.</p>
-        <h3>Productos:</h3>
+        <p>¡Hola Padelhacker!</p>
+        <p>¿Gracias por confiar en nosotros!</p>
+        <p>Aquí tienes los detalles de tu pedido:</p>
         <table style="border-collapse: collapse; width: 100%;">
           <thead>
             <tr>
               <th style="border: 1px solid black; padding: 8px; text-align: center;">Producto</th>
               <th style="border: 1px solid black; padding: 8px; text-align: center;">Imagen</th>
-              <th style="border: 1px solid black; padding: 8px; text-align: center;">Precio</th>
+              <th style="border: 1px solid black; padding: 8px; text-align: center;">Precio Unitario</th>
               <th style="border: 1px solid black; padding: 8px; text-align: center;">Cantidad</th>
               <th style="border: 1px solid black; padding: 8px; text-align: center;">Subtotal</th>
             </tr>
@@ -70,7 +69,7 @@ module.exports.sendTicketEmail = (ticket) => {
           </tbody>
         </table>
         <br />
-        <h3 style="text-align: center;">El equipo de Padelhack</h3>
+        <h3>El equipo de Padelhack</h3>
       `,
     })
     .then(() => {
